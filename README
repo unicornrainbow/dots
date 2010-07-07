@@ -1,0 +1,9 @@
+
+Setup case insenitivity
+
+== Installation
+#TODO: Make sure this works, protect against overwriting files
+ln -s ~/bin/dotfiles/bashrc ~/.bashrc
+ln -s ~/bin/dotfiles/bash_profile ~/.bash_profile
+
+
