@@ -11,4 +11,7 @@ export PATH=$PATH:~/bin:.
 export PATH=`gem env gemdir`:$PATH
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 
-
+# Turn on git bash completion
+if [ -f ~/bin/bash_completion/git ]; then
+  . ~/bin/bash_completion/git
+fi
