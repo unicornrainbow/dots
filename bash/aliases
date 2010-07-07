@@ -1,0 +1,16 @@
+export ALAISES_PATH=~/bin/dotfiles/bash/aliases
+alias ..='cd ..'
+alias ea='vim $ALAISES_PATH; reload'
+alias reload='source $ALAISES_PATH'
+
+alias l=ls\ -l
+alias c=clear
+alias cl=c\;l
+
+# GIT
+alias g=git\ status
+alias ga=git\ add
+alias gco=git\ commit
+alias cdd=cd\ -
+
+alias j='mvim ~/.notes/blake/journal'
