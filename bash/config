@@ -1,1 +1,1 @@
-export PS1="\h:\W \u✪ "
+export PS1='\u@\h:\w $(vcprompt)✪ '
