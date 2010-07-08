@@ -1,8 +1,9 @@
-export ALAISES_PATH=~/bin/dotfiles/bash/aliases
+export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 
 alias tm='open *.tmproj'
 
 alias ..='cd ..'
+alias cd..='cd ..'
 alias ea='vim $ALAISES_PATH; reload'
 alias reload='source $ALAISES_PATH'
 
@@ -21,7 +22,21 @@ alias gd=git\ diff
 alias cdd=cd\ -
 alias j='mvim ~/.notes/blake/journal'
 
-function rtw {
-	sed -i 's/[[:space:]]*$//' "$1"
+# Not Working
+#rtw () {
+#        sed -i 's/[[:space:]]*$//' "$1"
+#}
+
+ff () {
+# ff x find file named x
+find . -name $1 -print
 }
+
+files () {
+# files x => list files in x
+find $1 -type f -print
+}
+
+
+
 
