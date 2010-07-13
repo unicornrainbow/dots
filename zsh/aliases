@@ -20,7 +20,6 @@ alias cl=c\;l
 alias g=git\ status
 alias ga=git\ add
 alias gco=git\ checkout
-alias gc=git\ commit
 alias gb=git\ branch
 alias gd=git\ diff
 alias g/='cd ./$(git rev-parse --show-cdup)' # Go to the root of the git project.
@@ -37,10 +36,21 @@ alias td='open ~/.notes/blake/todo'
 alias todo='open ~/.notes/todo/$(basename `pwd`)'
 
 # Removes trailing white space from files.
+#
+# Examples:
+#  rtw `files db lib test app config public` # to remove trailing whitespace from all files in a rails app. 
 rtw () {
-  #echo $1
   sed -i "" 's/[[:space:]]*$//' $*
 }
+
+# This one has no limit but should be slower, set up to use this as a fall back perhaps if the first one fails?
+#rtw () {
+#  for f in $*
+#  do
+#    sed -i "" 's/[[:space:]]*$//' $f
+#  done
+#}
+
 
 # Identifies files with trailing white space.
 tw () {
@@ -54,7 +64,7 @@ ff () {
 
 # Finds all files not in hidden directories, includes files that are hidden.
 files () {
-  if [ -z "$1" ]
+  if [ -z "$1" ] # If now directory provided to search, search the current directory
   then
     find . \( ! -regex '.*/\..*/..*' \) -type f -print
   else
