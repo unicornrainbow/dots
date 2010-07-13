@@ -4,6 +4,11 @@ alias tm='open *.tmproj'
 
 alias ..='cd ..'
 alias cd..='cd ..'
+alias ../..='..;..'
+alias ../../..='..;..;..'
+alias ../../../..='..;..;..;..'
+alias ../../../../..='..;..;..;..;..'
+
 alias ea='vim $ALAISES_PATH; reload'
 alias reload='source $ALAISES_PATH'
 
@@ -18,25 +23,42 @@ alias gco=git\ checkout
 alias gc=git\ commit
 alias gb=git\ branch
 alias gd=git\ diff
+alias g/='cd ./$(git rev-parse --show-cdup)' # Go to the root of the git project.
+alias cdg=g/
+
+# Rails
+alias ss=script/server
 
 alias cdd=cd\ -
-alias j='mvim ~/.notes/blake/journal'
+alias j='open ~/.notes/blake/journal'
+alias td='open ~/.notes/blake/todo'
 
-# Not Working
-#rtw () {
-#        sed -i 's/[[:space:]]*$//' "$1"
-#}
+# Turn this into a function, if the file does not exisit, create it.
+alias todo='open ~/.notes/todo/$(basename `pwd`)'
+
+# Removes trailing white space from files.
+rtw () {
+  #echo $1
+  sed -i "" 's/[[:space:]]*$//' $*
+}
+
+# Identifies files with trailing white space.
+tw () {
+  grep -l '[[:space:]]*$' $*
+}
 
 ff () {
-# ff x find file named x
-find . -name $1 -print
+  # ff x find file named x
+  find . -name $1 -print
 }
 
+# Finds all files not in hidden directories, includes files that are hidden.
 files () {
-# files x => list files in x
-find $1 -type f -print
+  if [ -z "$1" ]
+  then
+    find . \( ! -regex '.*/\..*/..*' \) -type f -print
+  else
+    find $* \( ! -regex '.*/\..*/..*' \) -type f -print
+  fi
 }
-
-
-
 

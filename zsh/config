@@ -15,4 +15,6 @@ setopt correct
 ## Spelling prompt
 SPROMPT='zsh: correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) '
 
-
+## Allow tabbing backwards through tab completion.
+# From: http://bit.ly/aII3Fm
+bindkey '^[[Z' reverse-menu-complete
