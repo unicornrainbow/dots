@@ -64,11 +64,6 @@ ff () {
 
 # Finds all files not in hidden directories, includes files that are hidden.
 files () {
-  if [ -z "$1" ] # If now directory provided to search, search the current directory
-  then
-    find . \( ! -regex '.*/\..*/..*' \) -type f -print
-  else
-    find $* \( ! -regex '.*/\..*/..*' \) -type f -print
-  fi
+  find $* \( ! -regex '.*/\..*/..*' \) -type f -print
 }
 
