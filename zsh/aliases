@@ -18,12 +18,12 @@ alias cl=c\;l
 
 # GIT
 alias g=git\ status
-alias ga=git\ add
 alias gco=git\ checkout
 alias gb=git\ branch
-alias gd=git\ diff
 alias g/='cd ./$(git rev-parse --show-cdup)' # Go to the root of the git project.
 alias cdg=g/
+# alias gd=git\ diff
+# alias ga=git\ add
 
 # Rails
 alias ss=script/server
@@ -43,6 +43,11 @@ rtw () {
   sed -i "" 's/[[:space:]]*$//' $*
 }
 
+# TODO, fix so it work from any place, not just the root of the git repo, seems like this identifies files that don't have whitespace issues too.
+hastw () {
+  git diff-index --check --cached HEAD | sed '/^[+1]/d' | sed 's/\:[0-9]*\:.*//' | uniq
+}
+
 # This one has no limit but should be slower, set up to use this as a fall back perhaps if the first one fails?
 #rtw () {
 #  for f in $*
@@ -50,6 +55,7 @@ rtw () {
 #    sed -i "" 's/[[:space:]]*$//' $f
 #  done
 #}
+
 
 
 # Identifies files with trailing white space.
@@ -67,3 +73,20 @@ files () {
   find $* \( ! -regex '.*/\..*/..*' \) -type f -print
 }
 
+
+# function to change directory to the one set in the last opened finder.
+cdf () {
+   currFolderPath=$( /usr/bin/osascript <<EOT
+       tell application "Finder"
+           try
+               set currFolder to (folder of the front window as alias)
+           on error
+               set currFolder to (path to desktop folder as alias)
+           end try
+           POSIX path of currFolder
+       end tell
+   EOT
+   )
+   echo "cd to \"$currFolderPath\""
+   cd "$currFolderPath"
+}
