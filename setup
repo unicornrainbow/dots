@@ -1,0 +1,2 @@
+# Link dotfiles into the users home directory.
+# This should be able to be run at any time and set thing up correctly even if they are messed up

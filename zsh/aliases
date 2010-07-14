@@ -22,8 +22,8 @@ alias gco=git\ checkout
 alias gb=git\ branch
 alias g/='cd ./$(git rev-parse --show-cdup)' # Go to the root of the git project.
 alias cdg=g/
-# alias gd=git\ diff
-# alias ga=git\ add
+alias gd=git\ diff
+alias ga=git\ add
 
 # Rails
 alias ss=script/server
