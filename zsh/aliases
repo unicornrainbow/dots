@@ -33,6 +33,14 @@ alias gd=git\ diff
 alias ga=git\ add
 alias gcm=git\ commit
 
+bare_repo() {
+  mkdir $1.git
+  cd $1.git
+  git --bare init
+  cd ..
+}
+
+
 # Rails
 alias ss=script/server
 
