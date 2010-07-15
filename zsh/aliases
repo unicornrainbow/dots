@@ -1,5 +1,8 @@
 export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 
+# Add home directory to the cd path.
+CDPATH='.:~'
+
 alias tm='open *.tmproj'
 
 alias ..='cd ..'
@@ -16,6 +19,10 @@ alias l=ls\ -l
 alias c=clear
 alias cl=c\;l
 
+# Utility
+alias guid=uuidgen
+
+
 # GIT
 alias g=git\ status
 alias gco=git\ checkout
@@ -24,6 +31,7 @@ alias g/='cd ./$(git rev-parse --show-cdup)' # Go to the root of the git project
 alias cdg=g/
 alias gd=git\ diff
 alias ga=git\ add
+alias gcm=git\ commit
 
 # Rails
 alias ss=script/server
@@ -90,3 +98,17 @@ cdf () {
    echo "cd to \"$currFolderPath\""
    cd "$currFolderPath"
 }
+
+
+# Use for switching directories, include command completion.
+# hd bin = cd ~/bin
+alias hd="cd ~/$*"
+
+#hd() {
+#  cd ~/$1
+#}
+#_hd_list () {
+#  reply=(`ls ~`)
+#}
+#compctl -K _hd_list hd
+
