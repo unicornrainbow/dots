@@ -1,7 +1,7 @@
 export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 
 # Add home directory to the cd path.
-CDPATH='.:~'
+CDPATH='.:~:/Volumes'
 
 alias tm='open *.tmproj'
 
@@ -46,10 +46,10 @@ alias ss=script/server
 
 alias cdd=cd\ -
 alias j='open ~/.notes/blake/journal'
-alias td='open ~/.notes/blake/todo'
+alias td='open ~/notes/blake/todo'
 
 # Turn this into a function, if the file does not exisit, create it.
-alias todo='open ~/.notes/todo/$(basename `pwd`)'
+alias todo='open ~/notes/todo/$(basename `pwd`)'
 
 # Removes trailing white space from files.
 #
@@ -120,3 +120,6 @@ alias hd="cd ~/$*"
 #}
 #compctl -K _hd_list hd
 
+
+# Unmount disk
+alias um='diskutil umount'
