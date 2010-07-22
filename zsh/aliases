@@ -4,7 +4,7 @@ export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 CDPATH='.:~:/Volumes'
 
 alias tm='open *.tmproj'
-
+alias rape=rake
 alias ..='cd ..'
 alias cd..='cd ..'
 alias ../..='..;..'
@@ -32,6 +32,8 @@ alias cdg=g/
 alias gd=git\ diff
 alias ga=git\ add
 alias gcm=git\ commit
+alias gitx="open /Applications/GitX.app"
+
 
 bare_repo() {
   mkdir $1.git
@@ -51,6 +53,17 @@ alias td='open ~/notes/blake/todo'
 # Turn this into a function, if the file does not exisit, create it.
 alias todo='open ~/notes/todo/$(basename `pwd`)'
 
+# Unmount disk
+alias um='diskutil umount'
+
+# Journal Aliases
+alias grep-journal='cat ~/notes/blake/journal.txt | grep'
+
+# Should print one line for ever hash tag that is found in the file, I probably need sed for this
+#alias journal-tags='cat '
+ls-journal-tags() {
+  sed 's/#[a-z,A-Z]*/^&^/g' ~/notes/blake/journal.txt | tr -s '^' "\n" | grep "^#" | sort | uniq
+}
 # Removes trailing white space from files.
 #
 # Examples:
@@ -90,6 +103,17 @@ files () {
 }
 
 
+## RVM
+function gemdir {
+  if [[ -z "$1" ]] ; then
+    echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
+  else
+    rvm "$1"
+    cd $(rvm gemdir)
+    pwd
+  fi
+}
+
 # function to change directory to the one set in the last opened finder.
 cdf () {
    currFolderPath=$( /usr/bin/osascript <<EOT
@@ -121,5 +145,18 @@ alias hd="cd ~/$*"
 #compctl -K _hd_list hd
 
 
-# Unmount disk
-alias um='diskutil umount'
+
+
+bucky() {  # http://en.wikipedia.org/wiki/Bucky_bit
+cat <<eof
+  command | ⌘ | cmd
+  control | ⌃ | ctrl
+  option  | ⌥ | opt 
+  alt     |   | alt
+  shift   | ⇧ | shift
+eof
+}
+
+
+
+
