@@ -17,6 +17,15 @@ alias ../../../..='..;..;..;..'
 alias ../../../../..='..;..;..;..;..'
 
 
+
+# Compression
+alias z='tar cvzf' # z [output_name.tgz] dir
+alias uz='tar xvzf' # uz intput.tgz
+backup(){
+  z ~/Archives/Backups/$1@$(date +%Y)$(date +%m)$(date +%d).tgz $1
+}
+
+
 alias notes='echo $(printf "~/notes/blake/%s" $*)'
 alias ea='vim $ALAISES_PATH; reload'
 alias reload='source $ALAISES_PATH'
