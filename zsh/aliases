@@ -19,8 +19,8 @@ alias ../../../../..='..;..;..;..;..'
 
 
 # Compression
-alias z='tar cvzf' # z [output_name.tgz] dir
-alias uz='tar xvzf' # uz intput.tgz
+alias z='tar czf' # z [output_name.tgz] dir
+alias uz='tar xzf' # uz intput.tgz
 backup(){
   z ~/Archives/Backups/$1@$(date +%Y)$(date +%m)$(date +%d).tgz $1
 }
@@ -88,9 +88,10 @@ ls-journal-tags() {
 # Removes trailing white space from files.
 #
 # Examples:
-#  rtw `files db lib test app config public` # to remove trailing whitespace from all files in a rails app. 
+#  rtw `files db lib test app config public` # to remove trailing whitespace from all files in a rails app.
 rtw () {
   sed -i "" 's/[[:space:]]*$//' $*
+  sed -i "" -e :a -e '/^\n*$/N;/\n$/ba' $*
 }
 
 # TODO, fix so it work from any place, not just the root of the git repo, seems like this identifies files that don't have whitespace issues too.
@@ -172,12 +173,11 @@ bucky() {  # http://en.wikipedia.org/wiki/Bucky_bit
 cat <<eof
   command | ⌘ | cmd
   control | ⌃ | ctrl
-  option  | ⌥ | opt 
+  option  | ⌥ | opt
   alt     |   | alt
   shift   | ⇧ | shift
 eof
 }
 
-
-
-
+# For now, quick command to bring up bananajour
+alias bj_d='daemonize `which bananajour`'
