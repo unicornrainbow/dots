@@ -44,7 +44,7 @@ alias gco=git\ checkout
 alias gb=git\ branch
 alias g/='cd ./$(git rev-parse --show-cdup)' # Go to the root of the git project.
 alias cdg=g/
-alias gd=git\ diff
+alias gd=git\ diff\ -w
 alias ga=git\ add
 alias gcm=git\ commit
 alias gitx="open /Applications/GitX.app"
@@ -62,7 +62,7 @@ bare_repo() {
 
 # Rails
 alias ss=script/server
-
+alias rt='ruby -I"lib:test"'
 alias cdd=cd\ -
 alias j='open ~/.notes/blake/journal'
 alias td='open ~/notes/blake/todo'
@@ -78,7 +78,7 @@ alias grep-journal='cat ~/notes/blake/journal.txt | grep'
 
 # Rails
 alias t='ruby -I"lib:test"'
-
+alias r=rails
 
 # Should print one line for ever hash tag that is found in the file, I probably need sed for this
 #alias journal-tags='cat '
