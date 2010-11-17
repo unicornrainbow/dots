@@ -1,3 +1,4 @@
+
 export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 
 
@@ -16,6 +17,13 @@ alias ../../..='..;..;..'
 alias ../../../..='..;..;..;..'
 alias ../../../../..='..;..;..;..;..'
 
+# Gist Stash
+# alias gist-stash='git diff --cached --binary | gist -po -t diff'
+# The above would be better, but right now the extension is being ignored soo the below works in the mean time.
+alias gist-stash='git diff --cached --binary > patch.diff;gist patch.diff;rm patch.diff'
+gist-apply(){
+  curl $1 | git apply
+}
 
 
 # Compression
@@ -181,3 +189,14 @@ eof
 
 # For now, quick command to bring up bananajour
 alias bj_d='daemonize `which bananajour`'
+
+# Function to start script server
+s () {
+  if [ -e script/server ]; then
+    script/server $*
+  else
+    rails server $*
+  fi
+}
+
+
