@@ -200,3 +200,15 @@ s () {
     echo "I doubt you're in a rails app. Did not start server."
   fi
 }
+
+whiteout() {
+  PATCH=`mktemp /tmp/diff.XXXXX`
+  CPATCH=`mktemp /tmp/diff.XXXXX`
+  git diff -w --binary head > $PATCH
+  git diff --binary --cached > $CPATCH
+  git reset --hard HEAD
+  git apply $PATCH
+  git apply --cached $CPATCH
+  rm $PATCH $CPATCH
+}
+
