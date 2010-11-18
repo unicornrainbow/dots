@@ -1,7 +1,6 @@
 
 export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 
-
 # Shortcuts
 alias wiki="open https://sysiwiki.aghq.net/"
 
@@ -20,7 +19,7 @@ alias ../../../../..='..;..;..;..;..'
 # Gist Stash
 # alias gist-stash='git diff --cached --binary | gist -po -t diff'
 # The above would be better, but right now the extension is being ignored soo the below works in the mean time.
-alias gist-stash='git diff --cached --binary > patch.diff;gist patch.diff;rm patch.diff'
+alias gist-stash='git diff -w --cached --binary > patch.diff;gist patch.diff;rm patch.diff'
 gist-apply(){
   curl $1 | git apply
 }
@@ -70,10 +69,14 @@ bare_repo() {
 
 # Rails
 alias ss=script/server
+
+RUBYLIB="lib:test"
 alias rt='ruby -I"lib:test"'
+
 alias cdd=cd\ -
 alias j='open ~/.notes/blake/journal'
 alias td='open ~/notes/blake/todo'
+alias r=rails
 
 # Turn this into a function, if the file does not exisit, create it.
 alias todo='open ~/notes/todo/$(basename `pwd`)'
@@ -84,9 +87,6 @@ alias um='diskutil umount'
 # Journal Aliases
 alias grep-journal='cat ~/notes/blake/journal.txt | grep'
 
-# Rails
-alias t='ruby -I"lib:test"'
-alias r=rails
 
 # Should print one line for ever hash tag that is found in the file, I probably need sed for this
 #alias journal-tags='cat '
@@ -192,11 +192,11 @@ alias bj_d='daemonize `which bananajour`'
 
 # Function to start script server
 s () {
-  if [ -e script/server ]; then
-    script/server $*
-  else
+  if [ -e script/rails ]; then
     rails server $*
+  elif [ -e script/server ]; then
+    ./script/server $*
+  else
+    echo "I doubt you're in a rails app. Did not start server."
   fi
 }
-
-
