@@ -1,3 +1,4 @@
+source `dirname $0`/lib/rails
 
 export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 
@@ -190,18 +191,7 @@ eof
 # For now, quick command to bring up bananajour
 alias bj_d='daemonize `which bananajour`'
 
-# Function to start script server
-s () {
-  if [ -e script/rails ]; then
-    rails server $*
-  elif [ -e script/server ]; then
-    ./script/server $*
-  else
-    echo "I doubt you're in a rails app. Did not start server."
-  fi
-}
-
-whiteout() {
+git_union() {
   PATCH=`mktemp /tmp/diff.XXXXX`
   CPATCH=`mktemp /tmp/diff.XXXXX`
   git diff -w --binary head > $PATCH
@@ -211,4 +201,6 @@ whiteout() {
   git apply --cached $CPATCH
   rm $PATCH $CPATCH
 }
+
+alias s=rails-server
 
