@@ -28,6 +28,13 @@ backup(){
   z ~/Archives/Backups/$1@$(date +%Y)$(date +%m)$(date +%d).tgz $1
 }
 
+# SSH
+alias authkey='cat ~/.ssh/id_rsa.pub | ssh $1 "cat >> ~/.ssh/authorized_keys"'
+
+# SSH Tunnels
+alias rackspace='ssh -A -t rackspace.aghq.net ssh "$@"'
+alias terremark='ssh -A -t terremark.aghq.net ssh "$@"'
+
 # Utility
 alias guid=uuidgen
 
