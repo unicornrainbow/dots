@@ -1,4 +1,6 @@
-export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
+
+# Set alias path using this trick http://bit.ly/dQDlNT
+export ALAISES_PATH=$(cd $(dirname $0); pwd -P)/$(basename $0)
 
 # Shortcuts
 alias wiki="open https://sysiwiki.aghq.net/"
@@ -28,6 +30,10 @@ backup(){
 
 # Utility
 alias guid=uuidgen
+
+# OS X
+# Hide a folder from finder.
+alias hide='SetFile -a "V" $1'
 
 # Git
 alias g=git\ status\ -s
@@ -179,5 +185,3 @@ EOT
    echo "cd to \"$currFolderPath\""
    cd "$currFolderPath"
 }
-
-
