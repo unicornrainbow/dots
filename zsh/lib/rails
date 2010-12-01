@@ -1,8 +1,0 @@
-rails () {
-  if [ -e script/server ]; then
-    script/"$@"
-  else
-    command rails "$@"
-  fi
-}
-

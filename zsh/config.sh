@@ -1,4 +1,3 @@
-
 setopt prompt_subst
 export PS1='%n@%m:%~ $(vcprompt)✪ '
 export RPROMPT='$(ruby -e "print RUBY_VERSION")'

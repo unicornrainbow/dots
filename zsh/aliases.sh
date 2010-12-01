@@ -1,52 +1,35 @@
-source `dirname $0`/lib/rails
-
 export ALAISES_PATH=~/bin/dotfiles/zsh/aliases
 
 # Shortcuts
 alias wiki="open https://sysiwiki.aghq.net/"
 
-# Add home directory to the cd path.
+# Set up CDPATH
+#  * Include home directory to be able to navigate to subdirectories quickly form anywhere.
 CDPATH='.:~:/Volumes'
-
-alias tm='open *.tmproj'
-alias rape=rake
 alias ..='cd ..'
 alias cd..='cd ..'
 alias ../..='..;..'
 alias ../../..='..;..;..'
 alias ../../../..='..;..;..;..'
 alias ../../../../..='..;..;..;..;..'
+alias cdb=cd\ -
 
-# Gist Stash
-# alias gist-stash='git diff --cached --binary | gist -po -t diff'
-# The above would be better, but right now the extension is being ignored soo the below works in the mean time.
-alias gist-stash='git diff -w --cached --binary > patch.diff;gist patch.diff;rm patch.diff'
-gist-apply(){
-  curl $1 | git apply
-}
-
+# Textmate
+alias tm='open *.tmproj'
 
 # Compression
 alias z='tar czf' # z [output_name.tgz] dir
 alias uz='tar xzf' # uz intput.tgz
+
+# Backups
 backup(){
   z ~/Archives/Backups/$1@$(date +%Y)$(date +%m)$(date +%d).tgz $1
 }
 
-
-alias notes='echo $(printf "~/notes/blake/%s" $*)'
-alias ea='vim $ALAISES_PATH; reload'
-alias reload='source $ALAISES_PATH'
-
-alias l=ls\ -l
-alias c=clear
-alias cl=c\;l
-
 # Utility
 alias guid=uuidgen
 
-
-# GIT
+# Git
 alias g=git\ status\ -s
 alias gco=git\ checkout
 alias gb=git\ branch
@@ -59,6 +42,13 @@ alias gitx="open /Applications/GitX.app"
 alias gl="git log --oneline"
 alias rtwc='rtw `g | sed "s/^.\{3\}//"`'
 
+# Misc
+alias notes='echo $(printf "~/notes/blake/%s" $*)'
+alias ea='vim $ALAISES_PATH; reload'
+alias reload='source $ALAISES_PATH'
+alias l=ls\ -l
+alias c=clear
+alias cl=c\;l
 
 bare_repo() {
   mkdir $1.git
@@ -67,17 +57,12 @@ bare_repo() {
   cd ..
 }
 
+# Ruby
+export RUBYLIB="lib:test"
 
 # Rails
 alias s='rails server'
-
-RUBYLIB="lib:test"
 alias rt='ruby -I"lib:test"'
-
-alias cdd=cd\ -
-alias j='open ~/.notes/blake/journal'
-alias td='open ~/notes/blake/todo'
-alias r=rails
 
 # Turn this into a function, if the file does not exisit, create it.
 alias todo='open ~/notes/todo/$(basename `pwd`)'
@@ -87,7 +72,6 @@ alias um='diskutil umount'
 
 # Journal Aliases
 alias grep-journal='cat ~/notes/blake/journal.txt | grep'
-
 
 # Should print one line for ever hash tag that is found in the file, I probably need sed for this
 #alias journal-tags='cat '
@@ -116,8 +100,6 @@ hastw () {
 #  done
 #}
 
-
-
 # Identifies files with trailing white space.
 tw () {
   grep -l '[[:space:]]*$' $*
@@ -133,6 +115,13 @@ files () {
   find $* \( ! -regex '.*/\..*/..*' \) -type f -print
 }
 
+rails () {
+  if [ -e script/server ]; then
+    script/"$@"
+  else
+    command rails "$@"
+  fi
+}
 
 ## RVM
 function gemdir {
@@ -143,6 +132,35 @@ function gemdir {
     cd $(rvm gemdir)
     pwd
   fi
+}
+
+bucky() {  # http://en.wikipedia.org/wiki/Bucky_bit
+cat <<eof
+  command | ⌘ | cmd
+  control | ⌃ | ctrl
+  option  | ⌥ | opt
+  alt     |   | alt
+  shift   | ⇧ | shift
+eof
+}
+
+git_union() {
+  PATCH=`mktemp /tmp/diff.XXXXX`
+  CPATCH=`mktemp /tmp/diff.XXXXX`
+  git diff -w --binary head > $PATCH
+  git diff --binary --cached > $CPATCH
+  git reset --hard HEAD
+  git apply $PATCH
+  git apply --cached $CPATCH
+  rm $PATCH $CPATCH
+}
+
+# Gist Stash
+# alias gist-stash='git diff --cached --binary | gist -po -t diff'
+# The above would be better, but right now the extension is being ignored soo the below works in the mean time.
+alias gist-stash='git diff -w --cached --binary > patch.diff;gist patch.diff;rm patch.diff'
+gist-apply(){
+  curl $1 | git apply
 }
 
 # function to change directory to the one set in the last opened finder.
@@ -156,50 +174,10 @@ cdf () {
            end try
            POSIX path of currFolder
        end tell
-   EOT
+EOT
    )
    echo "cd to \"$currFolderPath\""
    cd "$currFolderPath"
-}
-
-
-# Use for switching directories, include command completion.
-# hd bin = cd ~/bin
-alias hd="cd ~/$*"
-
-#hd() {
-#  cd ~/$1
-#}
-#_hd_list () {
-#  reply=(`ls ~`)
-#}
-#compctl -K _hd_list hd
-
-
-
-
-bucky() {  # http://en.wikipedia.org/wiki/Bucky_bit
-cat <<eof
-  command | ⌘ | cmd
-  control | ⌃ | ctrl
-  option  | ⌥ | opt
-  alt     |   | alt
-  shift   | ⇧ | shift
-eof
-}
-
-# For now, quick command to bring up bananajour
-alias bj_d='daemonize `which bananajour`'
-
-git_union() {
-  PATCH=`mktemp /tmp/diff.XXXXX`
-  CPATCH=`mktemp /tmp/diff.XXXXX`
-  git diff -w --binary head > $PATCH
-  git diff --binary --cached > $CPATCH
-  git reset --hard HEAD
-  git apply $PATCH
-  git apply --cached $CPATCH
-  rm $PATCH $CPATCH
 }
 
 
