@@ -32,8 +32,13 @@ backup(){
 alias authkey='cat ~/.ssh/id_rsa.pub | ssh $1 "cat >> ~/.ssh/authorized_keys"'
 
 # SSH Tunnels
-alias rackspace='ssh -A -t rackspace.aghq.net ssh "$@"'
 alias terremark='ssh -A -t terremark.aghq.net ssh "$@"'
+
+# Setup tunnel to rackspace and tab-completion for server names.
+rackspace () {
+  ssh -A -t rackspace.aghq.net ssh "$@"
+}
+compctl -k "(meat-boy)" rackspace
 
 # Utility
 alias guid=uuidgen
