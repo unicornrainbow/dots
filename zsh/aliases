@@ -69,7 +69,7 @@ bare_repo() {
 
 
 # Rails
-alias ss=script/server
+alias s='rails server'
 
 RUBYLIB="lib:test"
 alias rt='ruby -I"lib:test"'
@@ -202,5 +202,4 @@ git_union() {
   rm $PATCH $CPATCH
 }
 
-alias s=rails-server
 

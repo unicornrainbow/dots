@@ -1,11 +1,11 @@
 
+## PATH ##
+
 export PATH=$PATH:~/bin:.
 
 # Include gem directory in path and setup RVM.
 export PATH=`gem env gemdir`:$PATH
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-
-
 
 # Include Chromium depot_tools
 # export PATH=/usr/local/lib/depot_tools:$PATH
