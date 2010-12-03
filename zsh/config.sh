@@ -20,4 +20,4 @@ SPROMPT='zsh: correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) '
 bindkey '^[[Z' reverse-menu-complete
 
 # VI Keybindings
-bindkey -v
+# bindkey -v
