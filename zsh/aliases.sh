@@ -81,6 +81,7 @@ export RUBYLIB="lib:test"
 
 # Rails
 alias s='rails server'
+alias shin='rails server thin'
 alias rt='ruby -I"lib:test"'
 
 # Turn this into a function, if the file does not exisit, create it.
