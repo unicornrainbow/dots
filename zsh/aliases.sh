@@ -38,7 +38,7 @@ alias terremark='ssh -A -t terremark.aghq.net ssh "$@"'
 rackspace () {
   ssh -A -t rackspace.aghq.net ssh "$@"
 }
-compctl -k "(meat-boy)" rackspace
+compctl -k "(meat-boy,francis,ellis)" rackspace
 
 # Utility
 alias guid=uuidgen
