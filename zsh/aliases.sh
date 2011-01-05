@@ -143,6 +143,18 @@ rails () {
   fi
 }
 
+# NOTE: This method is still unsafe. Add checks to ensure you can only use this on file or folder directly in
+#       the current directory. This will prevent removing this like root and ensure that a subsequent
+#       undormrf will work correctly
+rmrf () {
+  rm -rf /tmp/rmrf
+  mkdir -p /tmp/rmrf
+  mv "$@" /tmp/rmrf
+}
+
+alias undormrf='mv /tmp/rmrf/* .'
+
+
 ## RVM
 function gemdir {
   if [[ -z "$1" ]] ; then
