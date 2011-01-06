@@ -1,4 +1,5 @@
 
+
 # Set alias path using this trick http://bit.ly/dQDlNT
 export ALAISES_PATH=$(cd $(dirname $0); pwd -P)/$(basename $0)
 
@@ -46,6 +47,9 @@ alias guid=uuidgen
 # OS X
 # Hide a folder from finder.
 alias hide='SetFile -a "V" $1'
+
+# Get it?
+alias ellis=ls
 
 # Git
 alias g=git\ status\ -s
@@ -211,3 +215,6 @@ EOT
    echo "cd to \"$currFolderPath\""
    cd "$currFolderPath"
 }
+
+# Print status
+alias status='echo $?'
