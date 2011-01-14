@@ -227,3 +227,9 @@ function mate(){
     command mate "$@"
   fi
 }
+
+alias job_count='jobs | wc -l | sed -e "s/^[ \t]*//"'
+printn(){
+  echo $(printf "$1%.0s" {0..$2})
+}
+
