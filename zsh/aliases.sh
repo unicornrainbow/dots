@@ -218,3 +218,12 @@ EOT
 
 # Print status
 alias status='echo $?'
+
+# open textmate project
+function mate(){
+  if [ $# -eq '' ]; then
+    open *.tmproj
+  else
+    command mate "$@"
+  fi
+}
