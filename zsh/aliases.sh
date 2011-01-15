@@ -221,10 +221,20 @@ alias status='echo $?'
 
 # open textmate project
 function mate(){
-  if [ $# -eq '' ]; then
-    open *.tmproj
+  local proj=$(basename `pwd`).tmproj
+  if [ $# -eq 0 ]; then
+    if [ -f $proj ]; then
+      open $proj
+    else
+      command mate
+    fi
   else
-    command mate "$@"
+    # If the params equals ., check for project file with name match directoy and open that if it's there.
+    if [ "$@" = '.' -a -f $proj ]; then
+      open $proj
+    else
+      command mate "$@"
+    fi
   fi
 }
 
@@ -232,4 +242,3 @@ alias job_count='jobs | wc -l | sed -e "s/^[ \t]*//"'
 printn(){
   echo $(printf "$1%.0s" {0..$2})
 }
-
