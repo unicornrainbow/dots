@@ -252,6 +252,18 @@ remove_project_trailing_whitespace(){
   done
 }
 
+unit-open(){
+  echo $BOOKMARK_PATH[$1] -l $BOOKMARK_LINE[$1]
+}
+
+rake(){
+  command rake "$@" | bookmark
+}
+
+ruby(){
+  command ruby "$@" | bookmark
+}
+
 # Make so ctrl-z toggles running process.
 # ctrlz () {
 #  if [[ $#BUFFER -eq 0 ]]; then
