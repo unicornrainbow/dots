@@ -242,3 +242,24 @@ alias job_count='jobs | wc -l | sed -e "s/^[ \t]*//"'
 printn(){
   echo $(printf "$1%.0s" {0..$2})
 }
+
+
+remove_project_trailing_whitespace(){
+  for file in * (app|config|test|lib|public)/**/*.(rb|js|sass|css|yml|md|txt|erb|haml|config)
+  do
+    sed -i "" 's/[[:space:]]*$//' ${file}
+    sed -i "" -e :a -e '/^\n*$/N;/\n$/ba' ${file}
+  done
+}
+
+# Make so ctrl-z toggles running process.
+# ctrlz () {
+#  if [[ $#BUFFER -eq 0 ]]; then
+#    fg
+#    zle redisplay
+#  else
+#    zle push-input
+#  fi
+#}
+#zle -N ctrlz
+#bindkey '^Z' ctrlz
