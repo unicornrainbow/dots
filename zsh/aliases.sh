@@ -260,9 +260,7 @@ rake(){
   command rake "$@" | bookmark
 }
 
-ruby(){
-  command ruby "$@" | bookmark
-}
+alias b=bookmark
 
 # Make so ctrl-z toggles running process.
 # ctrlz () {
