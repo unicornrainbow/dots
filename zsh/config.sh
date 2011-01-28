@@ -1,7 +1,7 @@
 setopt prompt_subst
-export PS1='%n@%m:%~ $(vcprompt)$(printn "✪  " $(job_count)) '
+export PS1='%n@%m:%~ $(vcprompt)$(printn "★ " $(job_count)) '
 export RPROMPT='$(ruby -e "print RUBY_VERSION")'
-
+# ✪ ★
 ## Completions
 autoload -U compinit
 compinit -C
