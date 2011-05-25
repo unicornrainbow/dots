@@ -1,4 +1,5 @@
 
+export HISTSIZE=1000
 
 # Set alias path using this trick http://bit.ly/dQDlNT
 export ALAISES_PATH=$(cd $(dirname $0); pwd -P)/$(basename $0)
@@ -256,9 +257,9 @@ unit-open(){
   echo $BOOKMARK_PATH[$1] -l $BOOKMARK_LINE[$1]
 }
 
-rake(){
-  command rake "$@" | bookmark
-}
+#rake(){
+#  command rake "$@" | bookmark
+#}
 
 alias b=bookmark
 
@@ -273,3 +274,20 @@ alias b=bookmark
 #}
 #zle -N ctrlz
 #bindkey '^Z' ctrlz
+
+alias unit='rake test:units'
+alias functional='rake test:functionals'
+alias u=unit
+alias f=functional
+alias amend='git commit --amend'
+# work on this, alias functional='ruby test/functionals/$@'
+
+alias ip='ifconfig en0 | grep inet | cut -c 7-15'
+alias exip='curl icanhazip.com'
+
+show_doc(){
+  rocco -o doc $1
+  open $(echo "doc/${1}" | sed s/\\..\*/\.html/)
+}
+
+alias cuke=cucumber

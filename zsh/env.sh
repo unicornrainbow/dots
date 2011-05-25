@@ -3,4 +3,8 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X1
 
 # Include gem directory in path and setup RVM. Also add current directory to path.
 export PATH=`gem env gemdir`:$PATH
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm" # Load RVM function
+
+
+export NODE_PATH=/usr/local/lib/node

@@ -13,9 +13,13 @@ else
   i = 0
   bookmarks = []
   ARGF.each do |line|
-    failure = line.match(/(.*)\((.*)\).*\[(.*):(\d*)\]/)
-    if failure
-      test_case, test, path, line_number = *failure[1..4]
+    error = line.match(/(.*)\((.*)\).*\[(.*):(\d*)\]/)
+
+
+    error = line.match(/(.*):(\d*):.*<.*>/)
+
+    if error
+      test_case, test, path, line_number = *error[1..4]
       bookmarks[i] = {test_case: test_case, test: test, path: path, line_number: line_number}
       i += 1
       puts "#{red(test_case)}(#{test}) [#{bold(path)}:#{line_number}]"
