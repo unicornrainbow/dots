@@ -63,6 +63,8 @@ alias ga=git\ add
 alias gcm=git\ commit
 alias gitx="open /Applications/GitX.app"
 alias gl="git log --oneline"
+alias gg="git log --graph --all --oneline"
+
 alias rtwc='rtw `g | sed "s/^.\{3\}//"`'
 
 # Misc
@@ -291,3 +293,6 @@ show_doc(){
 }
 
 alias cuke=cucumber
+
+#alias git=hub
+
