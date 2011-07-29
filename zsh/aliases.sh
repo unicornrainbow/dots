@@ -72,7 +72,7 @@ alias notes='echo $(printf "~/notes/blake/%s" $*)'
 alias ea='vim $ALAISES_PATH; reload'
 alias reload='source $ALAISES_PATH'
 alias l=ls\ -l
-alias recent='ls -lt | less'
+alias recent='ls -lt | head -n 20'
 alias c=clear
 alias cl=c\;l
 
