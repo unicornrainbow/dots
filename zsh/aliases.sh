@@ -294,5 +294,8 @@ show_doc(){
 
 alias cuke=cucumber
 
-#alias git=hub
+# Ruby Bundles
+alias be=bundle\ exec
+alias rspec=be\ rspec
+alias rake=be\ rake
 
