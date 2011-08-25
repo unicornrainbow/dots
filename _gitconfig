@@ -1,0 +1,17 @@
+[user]
+	name = Blake Taylor
+	email = blakefrost@gmail.com
+[color]
+	status = auto
+	diff = auto
+[rerere]
+	enabled = 1
+[branch]
+	autosetupmerge = true
+[push]
+	default = upstream
+[alias]
+  nuke = !git clean -fd && git reset --hard
+  bo = !git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname) - %(authorname)   [%(objectname)]' | cut -d / -f 3- | head -n 20
+[core]
+	excludesfile = /Users/blake/.gitignore
