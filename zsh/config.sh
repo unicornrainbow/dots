@@ -1,5 +1,5 @@
 setopt prompt_subst
-export PS1='%n@%m:%~ $(vcprompt -f "[%s:%b] ")$(printn "★ " $(job_count)) '
+PROMPT='%n@%m:%~ $(vcprompt -f "[%s:%b] ") $(printn "★ " $(job_count)) '
 # export RPROMPT='$(echo $RUBY_VERSION | sed "s/\([a-z]*\)-\([1-9\.]*\)\(.*\)/\1 \2/" | tr a-z A-Z)'
 export RPROMPT='$(echo $RUBY_VERSION | sed "s/-/ /g")'
 

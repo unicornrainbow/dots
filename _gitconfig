@@ -12,6 +12,6 @@
 	default = upstream
 [alias]
   nuke = !git clean -fd && git reset --hard
-  bo = !git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname) - %(authorname)   [%(objectname)]' | cut -d / -f 3- | head -n 20
+  bo = !git for-each-ref --count=31 --sort=-committerdate refs/heads/ --format='%(refname) - %(authorname) [%(objectname)]' | cut -d / -f 3- | head -n 10
 [core]
 	excludesfile = /Users/blake/.gitignore
