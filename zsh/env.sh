@@ -12,6 +12,6 @@ export PATH=`gem env gemdir`:$PATH
 # >   (The situation with LLVM and Ruby may improve. This is as of 07-23-2011.)
 export CC=gcc-4.2
 
-[[ -s "/Users/blake/.rvm/scripts/rvm" ]] && source "/Users/blake/.rvm/scripts/rvm"
+eval "$(rbenv init -)"
 
 export NODE_PATH=/usr/local/lib/node
