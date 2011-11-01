@@ -299,3 +299,9 @@ alias be=bundle\ exec
 alias rspec=be\ rspec
 alias rake=be\ rake
 
+alias stage='git push stage head:master'
+alias browse=hub\ browse
+
+# Link schema example to schema
+alias scln='ln -Ff db/schema.example.rb db/schema.rb'
+
