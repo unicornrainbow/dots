@@ -183,6 +183,8 @@ cat <<eof
 eof
 }
 
+
+# Clean a commit removing fivolous whitespace.
 git_union() {
   PATCH=`mktemp /tmp/diff.XXXXX`
   CPATCH=`mktemp /tmp/diff.XXXXX`
@@ -301,7 +303,9 @@ alias rake=be\ rake
 
 alias stage='git push stage head:master'
 alias browse=hub\ browse
+alias jinkies='open http://jinkies.heroku.com/job/$(vcprompt -f "%b")'
 
 # Link schema example to schema
 alias scln='ln -Ff db/schema.example.rb db/schema.rb'
 
+alias migrate='rake db:migrate db:test:load'
