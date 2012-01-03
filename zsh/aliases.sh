@@ -310,13 +310,4 @@ alias scln='ln -Ff db/schema.example.rb db/schema.rb'
 
 alias migrate='rake db:migrate db:test:load'
 
-alias git-current='git branch | grep \* | sed "s/\* //"'
-alias git-changes='git log origin/$(git-current)..$(git-current)'
-alias git-clear='git reset --hard origin/$(git-current)'
 alias git-branches='git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='"'"'printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..master --oneline | wc -l))" "$(git log master..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"'"'"' | $SHELL | less'
-alias current=git-current
-alias changes=git-changes
-alias gclear=git-clear
-
-
-alias unpushed='!GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline'

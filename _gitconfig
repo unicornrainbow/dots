@@ -1,17 +1,25 @@
 [user]
-	name = Blake Taylor
-	email = blakefrost@gmail.com
+  name = Blake Taylor
+  email = blakefrost@gmail.com
 [color]
-	status = auto
-	diff = auto
+  status = auto
+  diff = auto
 [rerere]
-	enabled = 1
+  enabled = 1
 [branch]
-	autosetupmerge = true
+  autosetupmerge = true
 [push]
-	default = upstream
+  default = upstream
 [alias]
+  # Cleans out your workspace. I should make an un-nuke.
   nuke = !git clean -fd && git reset --hard
-  bo = !git for-each-ref --count=31 --sort=-committerdate refs/heads/ --format='%(refname) - %(authorname) [%(objectname)]' | cut -d / -f 3- | head -n 10
+  # Show unpushed changes
+  up = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
+  # Lose any unpushed changes
+  lose = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git reset --hard origin/$GIT_CURRENT_BRANCH
+
+  # Github Style Branch list
+  #branches = !git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"' | $SHELL | less
 [core]
-	excludesfile = /Users/blake/.gitignore
+  excludesfile = /Users/blake/.gitignore
+  quotepath = false
