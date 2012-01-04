@@ -15,6 +15,9 @@
   nuke = !git clean -fd && git reset --hard
   # Show unpushed changes
   up = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
+  # Show the diff
+  upd = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git diff origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH
+
   # Lose any unpushed changes
   lose = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git reset --hard origin/$GIT_CURRENT_BRANCH
 
