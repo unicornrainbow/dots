@@ -24,6 +24,15 @@
   # Display project root
   root = !ROOT=$(pwd) && echo $ROOT
 
+  # Stash All
+  sa = !echo "Implement me"
+
+  # Commit All
+  ca = !echo "Implement me"
+
+  # Go to next most recently edited branch
+  crawl = !echo "Implement me"
+
   # Github Style Branch list
   #branches = !git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"' | $SHELL | less
 
