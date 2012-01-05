@@ -1,9 +1,11 @@
 # This should be set to the location of this file.
-cd dotfiles/zsh
+pushd dotfiles/zsh > /dev/null
 
 source env.sh
 source config.sh
 source aliases.sh
 
-# A little script for taking notes in terminal.
+# Take notes in terminal
 source journal.sh
+
+popd > /dev/null
