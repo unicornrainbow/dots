@@ -1,4 +1,5 @@
-source ~/dotfiles/zsh/config.sh
+source zsh/config.sh
+# source zsh/lib/*.sh
 
 ### Aliases ###
 
@@ -62,7 +63,6 @@ alias gg="git log --graph --all --oneline"
 alias rtwc='rtw `g | sed "s/^.\{3\}//"`'
 
 # Misc
-alias notes='echo $(printf "~/notes/blake/%s" $*)'
 alias reload='source $ALAISES_PATH'
 alias l=ls\ -l
 alias recent='ls -lt | head -n 20'
