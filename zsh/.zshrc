@@ -37,12 +37,13 @@ compctl -k "(meat-boy,francis,ellis)" rackspace
 # Utility
 alias guid=uuidgen
 
-# OS X
 # Hide a folder from finder.
 alias hide='SetFile -a "V" $1'
 
 # Get it?
 alias ellis=ls
+
+# I bet Ellis gets it...
 
 # Git
 alias g=git\ status\ -s
