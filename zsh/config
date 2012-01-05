@@ -1,3 +1,5 @@
+#! /usr/bin/env zsh
+
 # ZSH Configuration #
 
 ### Environment Variables ###
@@ -66,3 +68,6 @@ VISUAL=mvim; export VISUAL
 
 # VI Keybindings
 bindkey -v
+
+# Load all other scripts.
+source zsh/(*~config)

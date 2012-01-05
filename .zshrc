@@ -1,5 +1,4 @@
-source zsh/config.sh
-# source zsh/lib/*.sh
+source zsh/config
 
 ### Aliases ###
 
