@@ -1,13 +1,17 @@
 #! /usr/bin/env sh
 
-DOT_FILES=$(cd $(dirname $0); pwd -P)
+ROOT=$(cd $(dirname $0); pwd -P)
 
-for filename in $DOT_FILES/.*; do
-  if [ -f $filename ]; then
-    echo "linking $filename"
-    ln -f "$filename" ~
+for dirname in $ROOT/*; do
+  if [ -d $dirname ]; then
+    echo "linking $dirname"
+    ln -sf $dirname ~
   fi
 done
 
-echo "Linking $DOT_FILES/zsh"
-ln -sf $DOT_FILES/zsh ~
+for filename in $ROOT/.*; do
+  if [ -f $filename ]; then
+    echo "linking $filename"
+    ln -f $filename ~
+  fi
+done
