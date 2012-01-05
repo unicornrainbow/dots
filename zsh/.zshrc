@@ -71,8 +71,6 @@ alias cl=c\;l
 
 # Rails
 alias s='rails server'
-alias shin='rails server thin'
-alias rt='ruby -I"lib:test"'
 
 # Turn this into a function, if the file does not exisit, create it.
 alias todo='open ~/notes/todo/$(basename `pwd`)'
@@ -80,9 +78,7 @@ alias todo='open ~/notes/todo/$(basename `pwd`)'
 # Unmount disk
 alias um='diskutil umount'
 
-# Journal Aliases
-alias grep-journal='cat ~/notes/blake/journal.txt | grep'
-
+# Give one shot to undo rmrf.
 alias undormrf='mv /tmp/rmrf/* .'
 
 # Gist Stash
@@ -97,12 +93,7 @@ alias job_count='jobs | wc -l | sed -e "s/^[ \t]*//"'
 
 alias b=bookmark
 
-alias unit='rake test:units'
-alias functional='rake test:functionals'
-alias u=unit
-alias f=functional
 alias amend='git commit --amend'
-# work on this, alias functional='ruby test/functionals/$@'
 
 alias ip='ifconfig en0 | grep inet | cut -c 7-15'
 alias exip='curl icanhazip.com'
