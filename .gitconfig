@@ -13,6 +13,11 @@
 [alias]
   # Cleans out your workspace. I should make an un-nuke.
   nuke = !git clean -fd && git reset --hard
+
+  # Undoes nuke
+  # Note: Should only apply to clean head
+  unuke = !echo "Implement me"
+
   # Show unpushed changes
   up = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
   # Show the diff
@@ -28,7 +33,7 @@
   sa = !echo "Implement me"
 
   # Commit All
-  ca = !echo "Implement me"
+  ca =
 
   # Go to next most recently edited branch
   crawl = !echo "Implement me"
