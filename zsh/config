@@ -70,4 +70,4 @@ VISUAL=mvim; export VISUAL
 bindkey -v
 
 # Load all other scripts.
-source zsh/(*~config)
+source ~/zsh/(*~config)

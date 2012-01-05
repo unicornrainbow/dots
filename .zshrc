@@ -1,4 +1,4 @@
-source zsh/config
+source ~/zsh/config
 
 ### Aliases ###
 
