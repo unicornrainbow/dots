@@ -4,9 +4,10 @@ These are my dotfiles. Feel free to steal, borrow and share.
 
 ## Install
 
+*Caution*: Install links all dotfiles in your home directory. This could
+have undesirable consequences.
+ 
 Run install.
 
     ./install
 
-*Note*: This links .dotfiles and directories from this project into ~. This could
-result in stuff getting overwritten. Do this with **caution**.
