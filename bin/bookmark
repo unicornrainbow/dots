@@ -4,7 +4,6 @@ require 'term/ansicolor'
 
 include Term::ANSIColor
 
-
 if ARGV[0]
   bookmark = ARGV[0].to_i - 1
   bookmarks = YAML.load(File.open('.bookmarks'))

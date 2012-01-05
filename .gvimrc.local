@@ -1,0 +1,31 @@
+" Style
+set gfn=Droid\ Sans\ Mono:h12
+color github
+set transparency=5
+
+" Ignore compiled assets
+set wildignore+=public/coffeescripts/**
+set wildignore+=public/assets/**
+set wildignore+=public/stylesheets/compiled/**
+
+" Clean Closing of Buffers.
+map fc <Esc>:call CleanClose(1)<CR>
+map fq <Esc>:call CleanClose(0)<CR>
+
+function! CleanClose(tosave)
+if (a:tosave == 1)
+    w!
+endif
+let todelbufNr = bufnr("%")
+let newbufNr = bufnr("#")
+if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
+    exe "b".newbufNr
+else
+    bnext
+endif
+
+if (bufnr("%") == todelbufNr)
+    new
+endif
+exe "bd".todelbufNr
+endfunction

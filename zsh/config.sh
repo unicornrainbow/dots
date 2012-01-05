@@ -14,6 +14,9 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 ## Global options
 setopt correct
 
+## Use extended globbing
+setopt extendedglob
+
 ## Allow interactive comments
 setopt interactivecomments
 
