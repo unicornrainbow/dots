@@ -6,3 +6,6 @@ for filename in $DOT_FILES/*/.*; do
     ln -f "$filename" ~
   fi
 done
+
+echo "Linking $DOT_FILES/zsh"
+ln -sf $DOT_FILES/zsh ~
