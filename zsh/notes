@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-export NOTES_ROOT='~/Dropbox/Notes'
+export NOTES_ROOT=~/Dropbox/Notes
 
 # Create a new note.
 note(){
@@ -9,10 +9,18 @@ note(){
   $EDITOR "$DIR/$(date +%T).txt"
 }
 
-
 # Review Notes
 notes(){
-  find $NOTES_ROOT -type f -exec cat {} \; | less
+  # Display notes reverse cronigically
+  local OUTPUT=$(mktemp -t notes)
+  for file in $(find $NOTES_ROOT -type f | sort -r); do
+    echo "\n=== $file ===\n" >> $OUTPUT
+    cat $file >> $OUTPUT
+    echo "\n" >> $OUTPUT
+  done
+  cat $OUTPUT | less
+  rm $OUTPUT
 }
+
 
 
