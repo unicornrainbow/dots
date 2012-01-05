@@ -33,6 +33,7 @@
   sa = !git add -A && git stash
 
   # Commit All
+  # This will - Review Changes and stage all, Accept Message (If abort, print the msg to stdou), commit.
   ca = !echo "Implement me"
 
   # Go to next most recently edited branch
