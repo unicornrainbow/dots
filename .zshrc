@@ -102,8 +102,6 @@ alias status='echo $?'
 
 alias job_count='jobs | wc -l | sed -e "s/^[ \t]*//"'
 
-alias b=bookmark
-
 alias amend='git commit --amend'
 
 alias ip='ifconfig en0 | grep inet | cut -c 7-15'
