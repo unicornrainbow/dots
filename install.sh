@@ -1,6 +1,11 @@
-echo $(cd $(dirname $0); pwd -P)
-echo */.* # ~/
+# Move to the dotfile directory.
+pushd $(cd $(dirname $0); pwd -P) > /dev/null
+# echo $(files */.*) # ~/
 
-# echo source $(cd $(dirname $0); pwd -P)/zsh/env.sh > ~/.zshrc
-# echo source $(cd $(dirname $0); pwd -P)/zsh/config.sh >> ~/.zshrc
-# echo source $(cd $(dirname $0); pwd -P)/zsh/aliases.sh >> ~/.zshrc
+for filename in */.*; do
+  if [ -f $filename ]; then
+    echo "linking $filename"
+    ln -f "$filename" ~
+  fi
+done
+
