@@ -21,6 +21,9 @@
   # Lose any unpushed changes
   lose = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git reset --hard origin/$GIT_CURRENT_BRANCH
 
+  # Display project root
+  root = !ROOT=$(pwd) && echo $ROOT
+
   # Github Style Branch list
   #branches = !git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"' | $SHELL | less
 

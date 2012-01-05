@@ -1,5 +1,18 @@
 #! /usr/bin/env zsh
 
+export NOTES_ROOT='~/Dropbox/Notes'
+
+# Create a new note.
 note(){
-  echo 'note'
+  local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
+  mkdir -p $DIR
+  $EDITOR "$DIR/$(date +%T).txt"
 }
+
+
+# Review Notes
+notes(){
+  find $NOTES_ROOT -type f -exec cat {} \; | less
+}
+
+

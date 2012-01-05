@@ -1,1 +1,3 @@
-
+" Fix whitespace.
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :retab

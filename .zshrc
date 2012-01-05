@@ -2,6 +2,12 @@ source zsh/config
 
 ### Aliases ###
 
+
+# Super short aliases
+alias b=branches
+alias n=notes
+alias g=git\ status\ -s
+
 # Edit this file.
 alias ez='$EDITOR ~/.zshrc; reload'
 
@@ -46,17 +52,23 @@ alias ellis=ls
 # I bet Ellis gets it...
 
 # Git
-alias g=git\ status\ -s
+alias gl="git log --oneline"
 alias gco=git\ checkout
 alias gb=git\ branch
-alias g/='cd ./$(git rev-parse --show-cdup)' # Go to the root of the git project.
+
+# Go to project root
+alias g/=cd $(git root)
 alias cdg=g/
+
 alias gd=git\ diff\ -w
 alias ga=git\ add
 alias gcm=git\ commit
+
 alias gitx="open /Applications/GitX.app"
-alias gl="git log --oneline"
 alias gg="git log --graph --all --oneline"
+
+# Github Style Branches
+alias branches='git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='"'"'printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..master --oneline | wc -l))" "$(git log master..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"'"'"' | $SHELL | less'
 
 # Remove trailing whitespace
 alias rtwc='rtw `g | sed "s/^.\{3\}//"`'
@@ -112,11 +124,6 @@ alias jinkies='open http://jinkies.heroku.com/job/$(vcprompt -f "%b")'
 alias scln='ln -Ff db/schema.example.rb db/schema.rb'
 
 alias migrate='rake db:migrate db:test:load'
-
-# Github Style Branch Listing. Need to clean up and make faster
-alias branches='git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='"'"'printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..master --oneline | wc -l))" "$(git log master..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"'"'"' | $SHELL | less'
-alias b=branches
-
 
 ### Functions ###
 
