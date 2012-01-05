@@ -1,0 +1,3 @@
+note(){
+  echo 'note'
+}
