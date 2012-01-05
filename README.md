@@ -1,4 +1,4 @@
-## My Dotfiles
+# My Dots!
 
 This is my collection of dotfiles which I use to get things done from day to
 day.
