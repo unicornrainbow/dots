@@ -1,6 +1,8 @@
 [user]
   name = Blake Taylor
   email = blakefrost@gmail.com
+[github]
+  user = blakefrost
 [color]
   status = auto
   diff = auto
