@@ -1,3 +1,6 @@
 " Fix whitespace.
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :retab
+
+" Swap buffers with ,l
+nmap <leader>l <C-^>
