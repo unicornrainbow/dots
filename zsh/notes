@@ -2,15 +2,21 @@
 
 export NOTES_ROOT=~/Dropbox/Notes
 
+notes(){
+  [ "$1" = '' ] && echo "Usage: notes [new|ls]" && return
+  eval "notes-$1"
+}
+alias note=notes
+
 # Create a new note.
-note(){
+notes-new(){
   local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
   mkdir -p $DIR
   $EDITOR "$DIR/$(date +%T).txt"
 }
 
 # Review Notes
-notes(){
+notes-ls(){
   # Display notes reverse cronigically
   local OUTPUT=$(mktemp -t notes)
   for file in $(find $NOTES_ROOT -type f | sort -r); do

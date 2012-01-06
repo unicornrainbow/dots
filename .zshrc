@@ -78,7 +78,7 @@ alias branch-status-base-master='git for-each-ref --count=400 --sort=-committerd
 alias rtwc='rtw `g | sed "s/^.\{3\}//"`'
 
 # Misc
-alias reload='source $ALAISES_PATH'
+alias reload='source ~/.zshrc'
 alias l=ls\ -l
 alias recent='ls -lt | head -n 20'
 alias c=clear
