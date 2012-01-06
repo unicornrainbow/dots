@@ -4,7 +4,8 @@ source ~/zsh/config
 
 
 # Super short aliases
-alias b=branches
+alias b=branch-status
+alias bm=branch-status-base-master
 alias n=notes
 alias g=git\ status\ -s
 
@@ -68,7 +69,10 @@ alias gitx="open /Applications/GitX.app"
 alias gg="git log --graph --all --oneline"
 
 # Github Style Branches
-alias branches='git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='"'"'printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"'"'"' | $SHELL | less'
+alias branch-status='git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='"'"'printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"'"'"' | $SHELL | less'
+
+# Branch status, but use master as base
+alias branch-status-base-master='git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='"'"'printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..master --oneline | wc -l))" "$(git log master..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"'"'"' | $SHELL | less'
 
 # Remove trailing whitespace
 alias rtwc='rtw `g | sed "s/^.\{3\}//"`'
