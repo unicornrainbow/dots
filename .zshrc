@@ -52,6 +52,10 @@ alias ellis=ls
 
 # I bet Ellis gets it...
 
+# Easy hop into the dotfiles directory
+# TODO: Auto figure this location...
+alias dotfiles=pushd\ ~/Projects/dotfiles
+
 # Git
 alias gl="git log --oneline"
 alias gco=git\ checkout
@@ -61,7 +65,14 @@ alias gb=git\ branch
 alias g/=cd $(git root)
 alias cdg=g/
 
+# Show uncached differences without whitespace.
 alias gd=git\ diff\ -w
+
+# Show cached changes
+alias gdc=gd\ --cached
+
+# Compare working directory to head
+alias gdh=gd\ head
 alias ga=git\ add
 alias gcm=git\ commit
 
