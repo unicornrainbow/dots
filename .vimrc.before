@@ -1,0 +1,2 @@
+" Need the leader to be somewher else. Upgrade Janus?
+let mapleader = ','
