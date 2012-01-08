@@ -1,20 +1,12 @@
-# Much of this stolen from github.com/maletor.
-
 # vim FTW
 Pry.config.editor = "mvim --nofork"
 
 # Prompt with ruby version
 Pry.prompt = [proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
-# hirb
-require 'hirb'
-
-Hirb.enable
-
-old_print = Pry.config.print
-Pry.config.print = proc do |output, value|
-  Hirb::View.view_or_page_output(value) || old_print.call(output, value)
-end
+# awesome print
+require 'awesome_print'
+Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
 
 # Toys methods
 # Stealed from https://gist.github.com/807492
@@ -41,6 +33,3 @@ cs = Pry::CommandSet.new do
 end
 
 Pry.config.commands = cs
-
-# loading rails configuration if it is running as a rails console
-load File.dirname(__FILE__) + '/.railsrc' if defined?(Rails) && Rails.env
