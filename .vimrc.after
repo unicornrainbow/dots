@@ -3,7 +3,18 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Turn tabs into spaces
 autocmd BufWritePre * :retab
 " Remove blank lines at end of file.
-autocmd BufWritePre * :%s/\(\s*\n\)\+\%$//
+"  - This causes errors to be printed when no blanks at end...
+"autocmd BufWritePre * :%s/\(\s*\n\)\+\%$//
+
+" Quiet annoying bell.
+set visualbell
+
+" ,b to fuzzy search buffer.
+map <leader>b :CtrlPBuffer<CR>
+
+" ,p for fuzzy file (This overrides nerdtrees jumo to parent. Maybe not so
+" good.)
+map <leader>p :CtrlP<CR>
 
 " Swap buffers with ,l
 nmap <leader>l <C-^>
@@ -24,7 +35,6 @@ map <c-Up> <c-w>k
 map <c-Down> <c-w>j
 map <c-Left> <c-w>h
 map <c-Right> <c-w>l
-
 
 " Pretty format xml.
 " type :PrettyXML
