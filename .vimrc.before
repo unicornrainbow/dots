@@ -1,2 +1,6 @@
 " Set , as leader.
 let mapleader = ','
+
+
+" Disable command-t, use ctrlp instead
+call janus#disable_plugin('command-t')
