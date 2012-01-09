@@ -3,6 +3,12 @@ set gfn=Droid\ Sans\ Mono:h12
 color github
 set transparency=5
 
+" Remove menu bar
+set guioptions-=m
+
+" Remove toolbar
+set guioptions-=T
+
 " Ignore compiled assets
 set wildignore+=public/coffeescripts/**
 set wildignore+=public/assets/**
