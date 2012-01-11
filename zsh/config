@@ -64,7 +64,7 @@ bindkey '^[[Z' reverse-menu-complete
 
 # Set editors
 EDITOR=vim; export EDITOR
-VISUAL=mvim; export VISUAL
+#VISUAL=mvim; export VISUAL
 
 # VI Keybindings
 bindkey -v
