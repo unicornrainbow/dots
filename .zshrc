@@ -331,3 +331,7 @@ function mate(){
   fi
 }
 
+# Make it easy to change just the name.
+# Usage ren some/path/file.rb new_name.rb => some/path/new_name.rb
+ren(){ mv $1 `dirname $1`/$2 }
+# :todo: Make it smart to check for a specfied path or extension. Only use default if nothing provided. move to current would be ./
