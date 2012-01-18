@@ -2,6 +2,8 @@ source ~/zsh/config
 
 ### Aliases ###
 
+# Easy access to git recent
+alias gr=git\ recent
 
 # Super short aliases
 alias b=branch-status
