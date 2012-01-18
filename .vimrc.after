@@ -16,6 +16,9 @@ map <leader>b :CtrlPBuffer<CR>
 " good.)
 map <leader>p :CtrlP<CR>
 
+" Don't manage working directory. Use whatever vim has.
+let g:ctrlp_working_path_mode = 0
+
 " Swap buffers with ,l
 nmap <leader>l <C-^>
 
