@@ -44,6 +44,9 @@
   # Github Style Branch list
   #branches = !git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"' | $SHELL | less
 
+  # List branches according to you most recent checkouts.
+  recent = !git reflog | grep checkout | cut -d : -f 3 | cut -d ' ' -f 4 | cat -n | sort -k2,2 -u | sort -k1,1 -n | cut -f 2 | grep -e '.\\{40\\}' -v | head -n 30 | cat -n
+
   publish = !BRANCH=$(git name-rev --name-only HEAD) && git push -u origin $BRANCH
 [core]
   excludesfile = /Users/blake/.gitignore
