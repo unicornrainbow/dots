@@ -333,6 +333,14 @@ function mate(){
   fi
 }
 
+# Checkout a previous branch
+cop(){
+  local NUM=$1
+  [ "$NUM" = '' ] && NUM=1
+  git checkout $(git recent | awk -v n=$NUM '$1 == n { print $2 }')
+}
+
+
 # Make it easy to change just the name.
 # Usage ren some/path/file.rb new_name.rb => some/path/new_name.rb
 ren(){ mv $1 `dirname $1`/$2 }
