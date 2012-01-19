@@ -338,7 +338,9 @@ cop(){
   if [ "$1" = '' ]; then
     git recent
   else
-    git checkout $(git recent | awk -v n=$1 '$1 == n { print $2 }')
+    local INDEX=$1
+    [ $INDEX = '-' ] && INDEX=1
+    git checkout $(git recent | awk -v n=$INDEX '$1 == n { print $2 }')
   fi
 }
 
