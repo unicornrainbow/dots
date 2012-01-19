@@ -335,9 +335,11 @@ function mate(){
 
 # Checkout a previous branch
 cop(){
-  local NUM=$1
-  [ "$NUM" = '' ] && NUM=1
-  git checkout $(git recent | awk -v n=$NUM '$1 == n { print $2 }')
+  if [ "$1" = '' ]; then
+    git recent
+  else
+    git checkout $(git recent | awk -v n=$1 '$1 == n { print $2 }')
+  fi
 }
 
 
