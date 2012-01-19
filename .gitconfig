@@ -21,12 +21,12 @@
   unuke = !echo "Implement me"
 
   # Show unpushed changes
-  up = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
+  up = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
   # Show the diff
-  upd = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git diff origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH
+  upd = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git diff origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH
 
   # Lose any unpushed changes
-  lose = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git reset --hard origin/$GIT_CURRENT_BRANCH
+  lose = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git reset --hard origin/$GIT_CURRENT_BRANCH
 
   # Display project root
   root = !ROOT=$(pwd) && echo $ROOT
