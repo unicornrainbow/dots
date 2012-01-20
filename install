@@ -9,9 +9,21 @@ for dirname in $ROOT/*; do
   fi
 done
 
-for filename in $ROOT/.*; do
+for filename in\
+  $ROOT/gemrc\
+  $ROOT/gitconfig\
+  $ROOT/gitignore\
+  $ROOT/gvimrc.after\
+  $ROOT/irbrc\
+  $ROOT/pryrc\
+  $ROOT/railsrc\
+  $ROOT/screenrc\
+  $ROOT/vimrc.after\
+  $ROOT/vimrc.before\
+  $ROOT/zshrc
+do
   if [ -f $filename ]; then
     echo "linking $filename"
-    ln -f $filename ~
+    ln -f $filename ~/.$(basename $filename)
   fi
 done
