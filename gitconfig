@@ -20,10 +20,19 @@
   # Note: Should only apply to clean head
   unuke = !echo "Implement me"
 
-  # Show unpushed changes
-  up = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
-  # Show the diff
-  upd = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git diff origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH
+  # Show unpushed/ahead changes
+  ahead = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
+  # Show the diff of upushed/ahead changes
+  ahead-diff = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git diff origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH
+
+  # Show unpulled/behind
+  behind = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git log $GIT_CURRENT_BRANCH..origin/$GIT_CURRENT_BRANCH --oneline
+
+  # Show diff of unpulled/behind changes
+  behind-diff = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git diff $GIT_CURRENT_BRANCH..origin/$GIT_CURRENT_BRANCH
+
+  # Merge the orgin branch into local branch.
+  take = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git merge origin/$GIT_CURRENT_BRANCH
 
   # Lose any unpushed changes
   lose = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git reset --hard origin/$GIT_CURRENT_BRANCH
