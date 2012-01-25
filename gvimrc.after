@@ -13,6 +13,8 @@ set guioptions-=T
 set wildignore+=public/coffeescripts/**
 set wildignore+=public/assets/**
 set wildignore+=public/stylesheets/compiled/**
+set wildignore+=public/javascripts/compiled/**
+set wildignore+=tmp/**
 
 " Clean Closing of Buffers.
 map fc <Esc>:call CleanClose(1)<CR>
