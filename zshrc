@@ -140,7 +140,17 @@ alias scln='ln -Ff db/schema.example.rb db/schema.rb'
 
 alias migrate='rake db:migrate db:test:load'
 
+alias migrate_last='rake db:migrate:up VERSION=$(latest_migration)'
+alias rollback_last='rake db:migrate:down VERSION=$(latest_migration)'
+
 ### Functions ###
+
+latest_migration(){
+  ls db/migrate/ |grep "^[0-9]" | tail -n 1 | awk -F'_' '{print $1}'
+}
+
+
+
 
 # Back something up.
 backup(){
