@@ -2,6 +2,12 @@ source ~/zsh/config
 
 ### Aliases ###
 
+# Review some commits
+alias logme='git log --all --since="6am" --until="today" --format="[%h]  %s %an" | grep $@ -i'
+
+# Clean out pesky assets.
+alias clean_assets='rm -rf public/javascripts/compiled public/stylesheets/compiled public/assets'
+
 # Easy access to git recent
 alias gr=git\ recent
 
