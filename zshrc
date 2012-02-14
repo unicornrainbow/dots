@@ -4,6 +4,7 @@ source ~/zsh/config
 
 # Review some commits
 alias logme='git log --all --since="6am" --until="today" --format="[%h]  %s %an" | grep $@ -i'
+#alias logcount='$(logme $@) | wc'
 
 # Clean out pesky assets.
 alias clean_assets='rm -rf public/javascripts/compiled public/stylesheets/compiled public/assets'
@@ -82,7 +83,6 @@ alias gdc=gd\ --cached
 # Compare working directory to head
 alias gdh=gd\ head
 alias ga=git\ add
-alias gcm=git\ commit
 
 alias gitx="open /Applications/GitX.app"
 alias gg="git log --graph --all --oneline"
@@ -360,6 +360,24 @@ cop(){
   fi
 }
 
+branchname(){
+  git branch | grep \* | awk '{print $2}'
+}
+
+featuretitle(){
+  echo ${$(branchname)//_/ } | ruby -e 'puts "#{STDIN.gets.capitalize.chomp}:"'
+}
+
+# Git commit w/ message
+# Everything after gcm will be used as the commit messge
+# If not on master message will be prefixed with feature title
+gcm(){
+  if [ $(branchname) = 'master' ]; then
+    git commit -m "$(echo $@)"
+  else
+    git commit -m "$(featuretitle) $(echo -n $@)"
+  fi
+}
 
 # Make it easy to change just the name.
 # Usage ren some/path/file.rb new_name.rb => some/path/new_name.rb
