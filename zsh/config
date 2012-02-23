@@ -69,5 +69,8 @@ EDITOR=vim; export EDITOR
 # VI Keybindings
 bindkey -v
 
+# Protected variables
+source ~/zsh/protected
+
 # Load all other scripts.
 source ~/zsh/(*~config)
