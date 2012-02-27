@@ -12,6 +12,9 @@ set visualbell
 " ,b to fuzzy search buffer.
 map <leader>b :CtrlPBuffer<CR>
 
+" Map jj to escape
+imap jj <Esc>
+
 " ,p for fuzzy file (This overrides nerdtrees jumo to parent. Maybe not so
 " good.)
 map <leader>p :CtrlP<CR>
@@ -96,3 +99,9 @@ function! NERDTreeQuit()
   endif
 endfunction
 autocmd WinEnter * call NERDTreeQuit()
+
+" ================ Scrolling ========================
+
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
