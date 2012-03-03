@@ -6,6 +6,7 @@
 [color]
   status = auto
   diff = auto
+  ui = true
 [rerere]
   enabled = 1
 [branch]
