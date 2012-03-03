@@ -5,9 +5,10 @@ ROOT=$(cd $(dirname $0); pwd -P)
 for dirname in $ROOT/*; do
   if [ -d $dirname ]; then
     echo "linking $dirname"
-    ln -sf $dirname ~
+    ln -shf $dirname ~/.$(basename $dirname)
   fi
 done
+
 
 for filename in\
   $ROOT/gemrc\
