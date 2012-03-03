@@ -1,8 +1,21 @@
 #! /usr/bin/env zsh
 
-# ZSH Configuration #
+# Source oh-my-zsh if it is installed.
+if [[ -d $HOME/.oh-my-zsh ]]; then
+  # Path to your oh-my-zsh configuration.
+  ZSH=$HOME/.oh-my-zsh
 
-### Environment Variables ###
+  # Set name of the theme to load.
+  ZSH_THEME="skwp"
+
+  # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+  # Example format: plugins=(rails git textmate ruby lighthouse)
+  plugins=(git rvm ruby rails autojump)
+
+  # Load default oh-my-zsh stuff
+  source $ZSH/oh-my-zsh.sh
+fi
+
 
 # Setup Path
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:.:~/bin
@@ -30,14 +43,8 @@ export HISTSIZE=1000
 # Ruby
 export RUBYLIB="lib:test"
 
-# Configure Prompt
-export PROMPT='%n@%m:%~ $(vcprompt -f "[%s:%b] ") $(printn "★ " $(job_count)) '
-export RPROMPT='$(rbenv version | cut -d " " -f 1 | sed "s/-/ /g")'
-
-### Other Configurations ###
-
-# :nodoc:
-setopt prompt_subst
+# Set editors
+export EDITOR=vim
 
 ## Completions
 autoload -U compinit
@@ -46,31 +53,38 @@ compinit -C
 ## case-insensitive (all),partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-## Global options
+# Turn on spelling correction
 setopt correct
 
-## Use extended globbing
+# Use extended globbing
 setopt extendedglob
 
-## Allow interactive comments
+# Allow interactive comments
 setopt interactivecomments
 
-## Spelling prompt
-SPROMPT='zsh: correct '%R' to '%r' ? ([Y]es/[N]o/[E]dit/[A]bort) '
+# Always pushd when changing directory
+setopt auto_pushd
 
 ## Allow tabbing backwards through tab completion.
 # From: http://bit.ly/aII3Fm
 bindkey '^[[Z' reverse-menu-complete
 
-# Set editors
-EDITOR=vim; export EDITOR
-#VISUAL=mvim; export VISUAL
-
 # VI Keybindings
 bindkey -v
 
-# Protected variables
-source ~/zsh/protected
+# Tun on bash style incremental search
+bindkey '^R' history-incremental-search-backward
+
+# Speed up git completion
+# http://talkings.org/post/5236392664/zsh-and-slow-git-completion
+__git_files () {
+  _wanted files expl 'local files' _files
+}
+
+# Things I don't want to publish to github
+[[ -s "$HOME/.secrets" ]] && source "$HOME/.secrets"
 
 # Load all other scripts.
-source ~/zsh/(*~config)
+source ~/aliases.zsh
+source ~/functions.zsh
+

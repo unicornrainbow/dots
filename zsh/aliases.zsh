@@ -25,20 +25,12 @@ alias wiki="open https://sysiwiki.aghq.net/"
 # Include ~ in CDPATH to nav from anywhere
 CDPATH='.:~:/Volumes'
 
-# Uppercuts
-alias ..='cd ..'
-alias ../..='..;..'
-alias ../../..='..;..;..'
-alias ../../../..='..;..;..;..'
-alias ../../../../..='..;..;..;..;..'
-
 # Fat finger
 alias cd..='cd ..'
 
 # Compression
 alias z='tar czf' # z [output_name.tgz] dir
 alias uz='tar xzf' # uz intput.tgz
-
 
 # SSH
 alias authkey='cat ~/.ssh/id_rsa.pub | ssh $1 "cat >> ~/.ssh/authorized_keys"'

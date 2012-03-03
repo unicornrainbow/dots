@@ -1,9 +1,14 @@
 ### Functions ###
 
+# Hop into a project directory
+p() { cd ~/Projects/$1; }
+_p() { _files -W ~/Projects -/; }
+compdef _p p
+
+# Print latest migration
 latest_migration(){
   ls db/migrate/ |grep "^[0-9]" | tail -n 1 | awk -F'_' '{print $1}'
 }
-
 
 # Back something up.
 backup(){
