@@ -2,12 +2,8 @@
 
 ROOT=$(cd $(dirname $0); pwd -P)
 
-for dirname in $ROOT/*; do
-  if [ -d $dirname ]; then
-    echo "linking $dirname"
-    ln -sf $dirname ~
-  fi
-done
+ln -s $ROOT/zsh         $HOME/.zsh
+ln -s $ROOT/oh-my-zsh   $HOME/.oh-my-zsh
 
 for filename in\
   $ROOT/gemrc\
