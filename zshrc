@@ -17,9 +17,12 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
-# Linux like ls colors http://norbauer.com/notebooks/code/notes/ls-colors-and-terminal-app
-export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-export ZLSCOLORS="${LS_COLORS}"
+
+## Colors
+source /usr/local/Cellar/coreutils/8.14/aliases
+eval `dircolors`
+alias ls='gls -hF --color=auto'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Setup Path
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:.:~/bin
