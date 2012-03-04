@@ -25,9 +25,6 @@ map <leader>b :CtrlPBuffer<CR>
 " Enter command mode with ;
 nmap ; :
 
-" Map jj to escape
-imap jj <Esc>
-
 " ,p for fuzzy file (This overrides nerdtrees jumo to parent. Maybe not so
 " good.)
 map <leader>p :CtrlP<CR>
