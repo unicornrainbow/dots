@@ -1,5 +1,7 @@
 #! /usr/bin/env zsh
 
+# VI Keybindings (Must come before sourcing oh-my-zsh to avoid stomp history-substring-search)
+bindkey -v
 
 # Source oh-my-zsh if it is installed.
 if [[ -d $HOME/.oh-my-zsh ]]; then
@@ -11,12 +13,11 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
   # Example format: plugins=(rails git textmate ruby lighthouse)
-  plugins=(rvm ruby rails autojump bundler brew gem heroku)
+  plugins=(rvm ruby rails autojump bundler brew gem heroku history-substring-search)
 
   # Load default oh-my-zsh stuff
   source $ZSH/oh-my-zsh.sh
 fi
-
 
 ## Colors
 source /usr/local/Cellar/coreutils/8.14/aliases
@@ -75,9 +76,6 @@ setopt auto_pushd
 ## Allow tabbing backwards through tab completion.
 # From: http://bit.ly/aII3Fm
 bindkey '^[[Z' reverse-menu-complete
-
-# VI Keybindings
-bindkey -v
 
 # Tun on bash style incremental search
 bindkey '^R' history-incremental-search-backward
