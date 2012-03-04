@@ -1,3 +1,10 @@
+
+" Colorscheme
+color marklar
+
+" Mouse support in vim
+set mouse=a
+
 " Delete Trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 " Turn tabs into spaces

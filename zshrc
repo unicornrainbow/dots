@@ -25,6 +25,9 @@ eval `dircolors`
 alias ls='gls -hF --color=auto'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
+## Use mvim in console mode
+alias vim='mvim -v'
+
 # Setup Path
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:.:~/bin
 
@@ -79,6 +82,9 @@ bindkey '^[[Z' reverse-menu-complete
 
 # Tun on bash style incremental search
 bindkey '^R' history-incremental-search-backward
+
+# Pretty colors
+export TERM='xterm-256color'
 
 # Speed up git completion
 # http://talkings.org/post/5236392664/zsh-and-slow-git-completion
