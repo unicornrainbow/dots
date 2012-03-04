@@ -136,3 +136,13 @@ endfunc
 
 " Relative line numbers
 autocmd BufEnter * set relativenumber
+
+" Disable arrow keys in vim
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
