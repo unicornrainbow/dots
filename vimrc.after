@@ -3,7 +3,7 @@ set gfn=Droid\ Sans\ Mono:h14
 set transparency=5
 
 " Colorscheme
-color oceanblack
+color lucius
 
 " Mouse support in vim
 set mouse=a
@@ -133,3 +133,6 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Relative line numbers
+autocmd BufEnter * set relativenumber
