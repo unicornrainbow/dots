@@ -19,6 +19,9 @@ set visualbell
 " ,b to fuzzy search buffer.
 map <leader>b :CtrlPBuffer<CR>
 
+" Enter command mode with ;
+nmap ; :
+
 " Map jj to escape
 imap jj <Esc>
 
