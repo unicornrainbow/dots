@@ -92,3 +92,4 @@ __git_files () {
 # Load all other scripts.
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
+source ~/.zsh/notes.zsh
