@@ -10,7 +10,7 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
   # Example format: plugins=(rails git textmate ruby lighthouse)
-  plugins=(rvm ruby rails autojump)
+  plugins=(rvm ruby rails autojump notes)
 
   # Load default oh-my-zsh stuff
   source $ZSH/oh-my-zsh.sh
@@ -86,4 +86,3 @@ __git_files () {
 # Load all other scripts.
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
-source ~/.zsh/notes.zsh
