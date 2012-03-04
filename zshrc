@@ -46,7 +46,7 @@ eval "$(rbenv init -)"
 export NODE_PATH=/usr/local/lib/node
 
 # Hold onto history for a while.
-export HISTSIZE=1000
+export HISTSIZE=1000000
 
 # Ruby
 export RUBYLIB="lib:test"
