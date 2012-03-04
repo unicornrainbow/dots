@@ -122,11 +122,6 @@ alias exip='curl icanhazip.com'
 
 alias cuke=cucumber
 
-# Ruby Bundles
-alias be=bundle\ exec
-alias rspec=be\ rspec
-alias rake=be\ rake
-
 alias stage='git push stage head:master'
 alias browse=hub\ browse
 alias jinkies='open http://jinkies.heroku.com/job/$(vcprompt -f "%b")'
