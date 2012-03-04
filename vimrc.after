@@ -1,6 +1,9 @@
+" Style
+set gfn=Droid\ Sans\ Mono:h14
+set transparency=5
 
 " Colorscheme
-color marklar
+color oceanblack
 
 " Mouse support in vim
 set mouse=a

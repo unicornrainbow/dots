@@ -1,7 +1,3 @@
-" Style
-set gfn=Droid\ Sans\ Mono:h12
-set transparency=5
-
 " Remove menu bar
 set guioptions-=m
 set guioptions+=c
