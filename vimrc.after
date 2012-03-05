@@ -132,8 +132,8 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Relative line numbers
-autocmd BufEnter * set relativenumber
+"Relative line numbers
+"autocmd BufEnter * set relativenumber
 
 " Disable arrow keys in vim
 noremap  <Up> ""
