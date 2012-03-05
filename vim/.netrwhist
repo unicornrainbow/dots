@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/blake/Projects/doximity'
-let g:netrw_dirhist_2='/Users/blake'
-let g:netrw_dirhist_3='/Users/blake/Projects/dotfiles'
-let g:netrw_dirhist_4='/Users/blake/.yadr'
-let g:netrw_dirhist_5='/Users/blake'
-let g:netrw_dirhist_6='/Users/blake/.yadr/vim/plugin/settings'
-let g:netrw_dirhist_7='/Users/blake/.yadr'
