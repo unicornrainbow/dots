@@ -3,4 +3,4 @@ tags
 *.swp
 .VimballRecord
 view
-vim/.netrwhist
+.netrwhist
