@@ -54,7 +54,7 @@ export HISTSIZE=1000000
 export RUBYLIB="lib:test"
 
 # Set editors
-export EDITOR=vim
+export EDITOR=mvim\ -v
 
 ## Completions
 autoload -U compinit

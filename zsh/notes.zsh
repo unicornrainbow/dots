@@ -12,12 +12,12 @@ alias note=notes
 notes-new(){
   local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
   mkdir -p $DIR
-  $EDITOR "$DIR/$(date +%T).txt"
+  eval $EDITOR "$DIR/$(date +%T).txt"
 }
 
 notes-last(){
   local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
-  $EDITOR $DIR/$(ls -t $DIR | head -n 1)
+  eval $EDITOR $DIR/$(ls -t $DIR | head -n 1)
 }
 
 # Review Notes
