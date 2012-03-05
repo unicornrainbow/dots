@@ -20,8 +20,7 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 fi
 
 ## Colors
-source /usr/local/Cellar/coreutils/8.14/aliases
-eval `dircolors`
+eval `gdircolors`
 alias ls='gls -hF --color=auto'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
