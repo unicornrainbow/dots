@@ -22,7 +22,8 @@ for filename in\
   $ROOT/vimrc.after\
   $ROOT/vimrc.before\
   $ROOT/zshrc\
-  $ROOT/dir_colors
+  $ROOT/dir_colors\
+  $ROOT/vimrc
 do
   if [ -f $filename ]; then
     echo "linking $filename"
