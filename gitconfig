@@ -8,11 +8,15 @@
   diff = auto
   ui = true
 [rerere]
-  enabled = 1
+  # Remember my merges
+  # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+  enabled = true
 [branch]
   autosetupmerge = true
 [push]
   default = upstream
+[advice]
+  statusHints = false
 [alias]
 
   # add
@@ -137,5 +141,11 @@
 [core]
   excludesfile = /Users/blake/.gitignore
   quotepath = false
+  editor = vim
+  autocrlf = false
 [apply]
   whitespace = nowarn
+[diff]
+  # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+  # instead of a/b/c/d as prefixes for patches
+  mnemonicprefix = true
