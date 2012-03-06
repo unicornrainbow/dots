@@ -15,6 +15,9 @@ alias b=branch-status
 alias bm=branch-status-base-master
 alias n=notes
 alias g=git
+alias s=git\ s
+alias a=git\ add
+alias aa='a -A && s' # Add all
 
 # Edit this file.
 alias ez='$EDITOR ~/.zshrc; reload'
@@ -94,7 +97,7 @@ alias c=clear
 alias cl=c\;l
 
 # Rails
-alias s='rails server'
+alias ss='rails server'
 
 # Turn this into a function, if the file does not exisit, create it.
 alias todo='open ~/notes/todo/$(basename `pwd`)'
