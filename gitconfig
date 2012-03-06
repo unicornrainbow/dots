@@ -137,3 +137,5 @@
 [core]
   excludesfile = /Users/blake/.gitignore
   quotepath = false
+[apply]
+  whitespace = nowarn
