@@ -79,7 +79,7 @@
   sd = stash drop                   # drop stashes (destory changes)
 
   # status
-  s = status                        # status
+  s = status -s                     # status
   st = status                       # status
   stat = status                     # status
 

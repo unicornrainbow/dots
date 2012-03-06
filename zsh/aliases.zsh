@@ -15,7 +15,6 @@ alias b=branch-status
 alias bm=branch-status-base-master
 alias n=notes
 alias g=git
-alias gs=git\ status\ -s
 
 # Edit this file.
 alias ez='$EDITOR ~/.zshrc; reload'
