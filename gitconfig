@@ -21,6 +21,14 @@
   # Note: Should only apply to clean head
   unuke = !echo "Implement me"
 
+  # Log
+  log = log --decorate --graph --date=short
+  l = log
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  short = log --pretty=format:\"%h %cr %C(blue)%cn %Cgreen%s%Creset\"
+  changelog = log --pretty=format:\" * %s\"
+  shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+
   # Show unpushed/ahead changes
   ahead = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
   # Show the diff of upushed/ahead changes
@@ -55,6 +63,8 @@
   recent = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git reflog | grep checkout | cut -d : -f 3 | cut -d ' ' -f 4 | cat -n | sort -k2,2 -u | sort -k1,1 -n | cut -f 2 | grep -e '.\\{40\\}' -v | grep "^$GIT_CURRENT_BRANCH$" -v | head -n 30 | cat -n
 
   publish = !BRANCH=$(git name-rev --name-only HEAD) && git push -u origin $BRANCH
+[format]
+  pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [core]
   excludesfile = /Users/blake/.gitignore
   quotepath = false

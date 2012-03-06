@@ -56,7 +56,8 @@ alias ellis=ls
 alias dotfiles=pushd\ ~/Projects/dotfiles
 
 # Git
-alias gl="git log --oneline"
+alias gl="git short"
+alias gg="git short --graph"
 alias gco=git\ checkout
 alias gb=git\ branch
 
@@ -75,7 +76,6 @@ alias gdh=gd\ head
 alias ga=git\ add
 
 alias gitx="open /Applications/GitX.app"
-alias gg="git log --graph --all --oneline"
 
 # Github Style Branches
 alias branch-status='git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='"'"'printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"'"'"' | $SHELL | less'
