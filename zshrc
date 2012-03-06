@@ -1,7 +1,7 @@
 #! /usr/bin/env zsh
 
 # VI Keybindings (Must come before sourcing oh-my-zsh to avoid stomp history-substring-search)
-bindkey -v
+#bindkey -v
 
 # Source oh-my-zsh if it is installed.
 if [[ -d $HOME/.oh-my-zsh ]]; then
