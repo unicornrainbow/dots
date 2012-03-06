@@ -141,7 +141,6 @@
 [core]
   excludesfile = /Users/blake/.gitignore
   quotepath = false
-  editor = vim
   autocrlf = false
 [apply]
   whitespace = nowarn
