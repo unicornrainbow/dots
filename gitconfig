@@ -14,6 +14,74 @@
 [push]
   default = upstream
 [alias]
+
+  # add
+  a = add                           # add
+  chunkyadd = add --patch           # stage commits chunk by chunk
+
+  # branch
+  b = branch -v                     # branch (verbose)
+
+  # commit
+  c = commit -m                     # commit with message
+  ca = commit -am                   # commit all with message
+  ci = commit                       # commit
+  amend = commit --amend            # ammend your last commit
+  ammend = commit --amend           # ammend your last commit
+
+  # checkout
+  co = checkout                     # checkout
+  nb = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
+
+  # cherry-pick
+  cp = cherry-pick -x               # grab a change from a branch
+
+  # diff
+  d = diff                          # diff unstaged changes
+  dc = diff --cached                # diff staged changes
+  last = diff HEAD^                 # diff last committed change
+
+  # log
+  log = log --decorate --graph --date=short
+  l = log
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+  changelog = log --pretty=format:\" * %s\"
+  shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+
+  # pull
+  pl = pull                         # pull
+
+  # push
+  ps = push                         # push
+
+  # rebase
+  rc = rebase --continue            # continue rebase
+  rs = rebase --skip                # skip rebase
+
+  # remote
+  r = remote -v                     # show remotes (verbose)
+
+  # reset
+  unstage = reset HEAD              # remove files from index (tracking)
+  uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+  filelog = log -u                  # show changes to a file
+  mt = mergetool                    # fire up the merge tool
+
+  # stash
+  ss = stash                        # stash changes
+  sl = stash list                   # list stashes
+  sa = stash apply                  # apply stash (restore changes)
+  sd = stash drop                   # drop stashes (destory changes)
+
+  # status
+  s = status                        # status
+  st = status                       # status
+  stat = status                     # status
+
+  # tag
+  t = tag -n                        # show tags with <n> lines of each tag message
+
   # Cleans out your workspace. I should make an un-nuke.
   nuke = !git clean -fd && git reset --hard
 
@@ -63,6 +131,7 @@
   recent = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git reflog | grep checkout | cut -d : -f 3 | cut -d ' ' -f 4 | cat -n | sort -k2,2 -u | sort -k1,1 -n | cut -f 2 | grep -e '.\\{40\\}' -v | grep "^$GIT_CURRENT_BRANCH$" -v | head -n 30 | cat -n
 
   publish = !BRANCH=$(git name-rev --name-only HEAD) && git push -u origin $BRANCH
+
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [core]
