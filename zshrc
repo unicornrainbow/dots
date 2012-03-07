@@ -1,8 +1,5 @@
 #! /usr/bin/env zsh
 
-# VI Keybindings (Must come before sourcing oh-my-zsh to avoid stomp history-substring-search)
-#bindkey -v
-
 # Source oh-my-zsh if it is installed.
 if [[ -d $HOME/.oh-my-zsh ]]; then
   # Path to your oh-my-zsh configuration.
@@ -13,7 +10,7 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
 
   # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
   # Example format: plugins=(rails git textmate ruby lighthouse)
-  plugins=(rvm ruby rails autojump bundler brew gem heroku history-substring-search)
+  plugins=(vi-mode rvm ruby rails autojump bundler brew gem heroku history-substring-search)
 
   # Load default oh-my-zsh stuff
   source $ZSH/oh-my-zsh.sh
