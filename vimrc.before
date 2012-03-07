@@ -1,2 +1,4 @@
 " Set , as leader.
 let mapleader = ','
+
+call janus#disable_plugin('css-color', 'css color is way to slow in current janus')
