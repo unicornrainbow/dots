@@ -236,3 +236,10 @@ gcm(){
 ren(){ mv $1 `dirname $1`/$2 }
 # :todo: Make it smart to check for a specfied path or extension. Only use default if nothing provided. move to current would be ./
 
+g(){
+  if [ "$1" = '' ]; then
+    git status -s
+  else
+    git $@
+  fi
+}
