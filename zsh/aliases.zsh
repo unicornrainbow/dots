@@ -67,10 +67,10 @@ alias g/=cd $(git root)
 alias cdg=g/
 
 # Show uncached differences without whitespace.
-alias gd=git\ diff\ -w
+alias xx=git\ diff\ -w
 
 # Show cached changes
-alias gdc=gd\ --cached
+alias xc=gd\ --cached
 
 # Compare working directory to head
 alias gdh=gd\ head
