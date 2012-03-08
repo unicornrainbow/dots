@@ -70,11 +70,10 @@ alias cdg=g/
 alias xx=git\ diff\ -w
 
 # Show cached changes
-alias xc=gd\ --cached
+alias xc=git\ diff\ --cached
 
 # Compare working directory to head
-alias gdh=gd\ head
-alias ga=git\ add
+alias xa=git\ diff\ head
 
 alias gitx="open /Applications/GitX.app"
 
