@@ -61,6 +61,7 @@ alias gl="git short"
 alias gg="git short --graph"
 alias gco=git\ checkout
 alias gb=git\ branch
+alias show=git\ show\ head
 
 # Go to project root
 alias g/=cd $(git root)
