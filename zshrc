@@ -12,6 +12,9 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
   # Example format: plugins=(rails git textmate ruby lighthouse)
   plugins=(vi-mode rvm ruby rails autojump bundler brew gem heroku history-substring-search)
 
+  # Comment this out to disable weekly auto-update checks
+  DISABLE_AUTO_UPDATE="true"
+
   # Load default oh-my-zsh stuff
   source $ZSH/oh-my-zsh.sh
 fi
