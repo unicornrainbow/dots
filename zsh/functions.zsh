@@ -1,5 +1,14 @@
 ### Functions ###
 
+fastpush() {
+  git fetch $1
+  git checkout $1/master
+  git merge -
+  local hash=$(git rev-parse HEAD)
+  git checkout -
+  git push $1 $hash:master
+}
+
 # Hop into a project directory
 p() { cd ~/Projects/$1; }
 _p() { _files -W ~/Projects -/; }
