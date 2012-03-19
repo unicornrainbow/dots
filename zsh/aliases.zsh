@@ -138,5 +138,5 @@ alias migrate='rake db:migrate db:test:load'
 alias migrate_last='rake db:migrate:up VERSION=$(latest_migration)'
 alias rollback_last='rake db:migrate:down VERSION=$(latest_migration)'
 
-alias tprod='heroku logs --tail --app $PROD'
-alias cprod='heroku console --app $PROD'
+alias tp='heroku logs --tail --app $PROD'
+alias prod='heroku console --app $PROD'
