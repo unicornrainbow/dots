@@ -4,6 +4,9 @@
 alias logme='git log --all --since="6am" --until="today" --format="[%h]  %s %an" | grep $@ -i'
 #alias logcount='$(logme $@) | wc'
 
+# Commit with message
+alias cm='git commit -m'
+
 # Clean out pesky assets.
 alias clean_assets='rm -rf public/javascripts/compiled public/stylesheets/compiled public/assets'
 
