@@ -127,6 +127,7 @@ alias exip='curl icanhazip.com'
 alias cuke=cucumber
 
 alias stage='git push stage head:master'
+alias gu=git_union
 alias browse=hub\ browse
 alias jinkies='open http://jinkies.heroku.com/job/$(vcprompt -f "%b")'
 
