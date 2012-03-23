@@ -4,7 +4,7 @@ export NOTES_ROOT=~/Dropbox/Notes
 
 notes(){
   [ "$1" = '' ] && echo "Usage: notes [new|ls]" && return
-  eval "notes-$1"
+  eval "notes-$1 $2 $3 $4 $5 $6 $7"
 }
 alias note=notes
 
@@ -31,6 +31,11 @@ notes-ls(){
   done
   cat $OUTPUT | less
   rm $OUTPUT
+}
+
+
+notes-done(){
+  notes-ls | grep "@done($(date "+%Y-%m-$1")"
 }
 
 
