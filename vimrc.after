@@ -165,3 +165,6 @@ map <Leader>sc :RScontroller
 map <Leader>sv :RSview
 map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest
+
+" File highlighting
+au BufNewFile,BufRead *.jst set filetype=html
