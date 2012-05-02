@@ -213,11 +213,11 @@ function mate(){
 # Checkout a previous branch
 cop(){
   if [ "$1" = '' ]; then
-    git recent
+    git recent | head -n 30 | cat -n
   else
     local INDEX=$1
     [ $INDEX = '-' ] && INDEX=1
-    git checkout $(git recent | awk -v n=$INDEX '$1 == n { print $2 }')
+    git checkout $(git recent | awk -v n=$INDEX '{ if (NR == n) print $0 }')
   fi
 }
 

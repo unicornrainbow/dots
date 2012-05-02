@@ -132,7 +132,7 @@
   #branches = !git for-each-ref --count=400 --sort=-committerdate refs/heads/ --format='printf "%%-40s %%4d behind\t%%4d ahead\t%%-20s\t%%30s\n" "$(echo %(refname) | cut -d / -f 3-)" "$(echo $(git log %(objectname)..head --oneline | wc -l))" "$(git log head..%(objectname) --oneline | wc -l)" "%(authorname)" "%(authordate)"' | $SHELL | less
 
   # List branches according to you most recent checkouts.
-  recent = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git reflog | grep checkout | cut -d : -f 3 | cut -d ' ' -f 6 | tail -n +2 | cat -n | sort -k2,2 -u | sort -k1,1 -n | cut -f 2 | grep -e '.\\{40\\}' -v | grep "^$GIT_CURRENT_BRANCH$" -v | head -n 30 | cat -n
+  recent = !GIT_CURRENT_BRANCH=$(git branch | grep \\* | awk '{print $2}') && git reflog | grep checkout | cut -d : -f 3 | cut -d ' ' -f 6 | tail -n +2 | cat -n | sort -k2,2 -u | sort -k1,1 -n | cut -f 2 | grep -e '.\\{40\\}' -v | grep "^$GIT_CURRENT_BRANCH$" -v
 
   publish = !BRANCH=$(git branch | grep \\* | awk '{print $2}') && git push -u origin $BRANCH
 
