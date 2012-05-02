@@ -143,3 +143,6 @@ alias tp='heroku logs --tail --app $PROD'
 alias prod='heroku console --app $PROD'
 
 alias bgl=BUNDLE_GEMFILE=Gemfile.local
+
+alias td='tail -n 100 log/development.log'
+alias tdf='tail -f log/development.log'
