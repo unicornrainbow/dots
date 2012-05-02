@@ -141,3 +141,5 @@ alias rollback_last='rake db:migrate:down VERSION=$(latest_migration)'
 
 alias tp='heroku logs --tail --app $PROD'
 alias prod='heroku console --app $PROD'
+
+alias bgl=BUNDLE_GEMFILE=Gemfile.local
