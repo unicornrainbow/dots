@@ -86,12 +86,8 @@
   # tag
   t = tag -n                        # show tags with <n> lines of each tag message
 
-  # Cleans out your workspace. I should make an un-nuke.
-  nuke = !git clean -fd && git reset --hard
-
-  # Undoes nuke
-  # Note: Should only apply to clean head
-  unuke = !echo "Implement me"
+  # Cleans out your workspace.
+  nuke = !read -p 'Are you sure? [y,n]' -n 1 -r && [[ $REPLY =~ ^[Yy]$ ]] && git clean -fd && git reset --hard
 
   # Log
   log = log --decorate --graph --date=short
