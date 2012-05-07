@@ -72,6 +72,7 @@ alias cdg=g/
 
 # Show uncached differences without whitespace.
 alias xx=git\ diff\ -w
+alias x=xx
 
 # Show cached changes
 alias xc=git\ diff\ --cached
