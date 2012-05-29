@@ -19,6 +19,9 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
+# Disable auto correct
+unsetopt correct_all
+
 ## Colors
 eval `gdircolors`
 alias ls='gls -hF --color=auto'
