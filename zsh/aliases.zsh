@@ -149,3 +149,5 @@ alias td='tail -n 100 log/development.log'
 alias tdf='tail -f log/development.log'
 
 alias sl=git\ stash\ list
+
+alias t=thor
