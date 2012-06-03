@@ -252,3 +252,14 @@ g(){
     git $@
   fi
 }
+
+
+# Generate spec for model
+#
+# Example:
+#
+#   $ model_spec app/model/user.rb
+#
+model_spec() {
+  rails generate model $(basename -s ".rb" $1) -s --migration=false
+}
