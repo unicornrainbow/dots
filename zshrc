@@ -31,7 +31,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 alias vim='mvim -v'
 
 # Setup Path
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:.:~/bin
+export PATH=~/script:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:.:~/bin
 
 # Add python share to path
 export PATH=/usr/local/share/python:$PATH
