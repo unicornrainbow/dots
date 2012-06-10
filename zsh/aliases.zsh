@@ -151,3 +151,5 @@ alias tdf='tail -f log/development.log'
 alias sl=git\ stash\ list
 
 alias t=thor
+
+alias google=git\ grep
