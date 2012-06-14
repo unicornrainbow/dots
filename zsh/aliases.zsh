@@ -166,7 +166,7 @@ alias google=git\ grep
 # [More…](http://stackoverflow.com/questions/352098/how-to-pretty-print-json-script)
 #
 alias json=python\ -mjson.tool
-alias jsonc='json | pygmentize -f terminal256 -l javascript -O style=native'
+alias jscolor='pygmentize -f terminal256 -l javascript -O style=native'
 
 #When I know the file I want to edit is the most recent file in a directory
 alias vew='vi `l\s -t * | head -1 `'

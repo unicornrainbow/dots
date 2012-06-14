@@ -253,6 +253,21 @@ g(){
   fi
 }
 
+js() {
+  local color=true
+  while getopts ":n" opt; do
+    case $opt in
+      n)
+        color=false
+        ;;
+    esac
+  done
+  if [ $color = true ]; then
+    json | jscolor
+  else
+    json
+  fi
+}
 
 # Generate spec for model
 #
