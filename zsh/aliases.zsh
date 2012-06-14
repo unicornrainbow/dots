@@ -153,3 +153,20 @@ alias sl=git\ stash\ list
 alias t=thor
 
 alias google=git\ grep
+
+# Pretty print json.
+#
+# Usage:
+#
+# $ curl -s some/json/end.point | json
+# {
+#   "key": "value"
+# }
+#
+# Note: Requires ruby json gem
+#
+#     gem install json
+#
+# [More…](http://stackoverflow.com/questions/352098/how-to-pretty-print-json-script)
+#
+alias json=prettify_json.rb
