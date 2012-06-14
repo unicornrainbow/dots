@@ -163,10 +163,6 @@ alias google=git\ grep
 #   "key": "value"
 # }
 #
-# Note: Requires ruby json gem
-#
-#     gem install json
-#
 # [More…](http://stackoverflow.com/questions/352098/how-to-pretty-print-json-script)
 #
-alias json=prettify_json.rb
+alias json=python\ -mjson.tool
