@@ -9,9 +9,10 @@ fastpush() {
   git push $1 $hash:master
 }
 
+export PROJECTS_DIR=~/projects
 # Hop into a project directory
-p() { cd ~/Projects/$1; }
-_p() { _files -W ~/Projects -/; }
+p() { cd $PROJECTS_DIR/$1; }
+_p() { _files -W $PROJECTS_DIR -/; }
 compdef _p p
 
 # Print latest migration
