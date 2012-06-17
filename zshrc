@@ -24,7 +24,7 @@ unsetopt correct_all
 
 ## Colors
 eval `dircolors`
-alias ls='gls -hF --color=auto'
+alias ls='ls -hF --color=auto'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 ## Use mvim in console mode
