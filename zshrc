@@ -23,29 +23,21 @@ fi
 unsetopt correct_all
 
 ## Colors
-eval `gdircolors`
-alias ls='gls -hF --color=auto'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+#eval `gdircolors`
+#alias ls='gls -hF --color=auto'
+#zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 ## Use mvim in console mode
-alias vim='mvim -v'
+#alias vim='mvim -v'
 
 # Setup Path
 export PATH=~/script:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:.:~/bin
 
+# Add rbenv to path
+export PATH="$HOME/.rbenv/bin:$PATH"
+
 # Add python share to path
 export PATH=/usr/local/share/python:$PATH
-
-# Include gem directory in path and setup RVM. Also add current directory to path.
-export PATH=`gem env gemdir`:$PATH
-
-# RE: Lion Rubies Breaks Ruby and RVM
-# > Notes for Darwin ( Mac OS X )
-# >   For Lion, Rubies should be built using gcc rather than llvm-gcc. Since
-# >   /usr/bin/gcc is now linked to /usr/bin/llvm-gcc-4.2, add the following to
-# >   your shell's start-up file: export CC=gcc-4.2
-# >   (The situation with LLVM and Ruby may improve. This is as of 07-23-2011.)
-export CC=gcc-4.2
 
 # Initialize rebenv
 eval "$(rbenv init -)"
