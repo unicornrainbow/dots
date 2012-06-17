@@ -39,11 +39,6 @@ alias uz='tar xzf' # uz intput.tgz
 # SSH
 alias authkey='cat ~/.ssh/id_rsa.pub | ssh $1 "cat >> ~/.ssh/authorized_keys"'
 
-# SSH Tunnels
-alias terremark='ssh -A -t terremark.aghq.net ssh "$@"'
-
-compctl -k "(meat-boy,francis,ellis)" rackspace
-
 # Utility
 alias guid=uuidgen
 
