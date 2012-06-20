@@ -34,13 +34,13 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 export PATH=~/script:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:.:~/bin
 
 # Add rbenv to path
-export PATH="$HOME/.rbenv/bin:$PATH"
+#export PATH="$HOME/.rbenv/bin:$PATH"
 
 # Add python share to path
 export PATH=/usr/local/share/python:$PATH
 
 # Initialize rebenv
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 # Configure node
 export NODE_PATH=/usr/local/lib/node
