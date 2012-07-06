@@ -110,8 +110,26 @@ rails () {
   if [ -e script/server ]; then
     script/"$@"
   else
-    bash -c "[ -f .env ] && source .env; command rails \"$@\""
+    command rails "$@"
+    #bash -c "[ -f .env ] && source .env; command rails \"$@\""
   fi
+}
+
+svar () {
+  local pass=`security find-generic-password -g -a btaylor -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  zsh -c "[ -f .svar.bin ] && openssl enc -d -des3 -in .svar.bin -pass pass:$pass | source /dev/stdin; command rails \"$@\""
+}
+
+svar-encrypt () {
+  local pass=`security find-generic-password -g -a btaylor -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  openssl enc -des3 -in .svar -out .svar.bin -pass pass:$pass || { echo "encryption failed"; return 1; }
+  [ -f .svar.bin ] && rm .svar
+}
+
+svar-decrypt () {
+  local pass=`security find-generic-password -g -a btaylor -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  openssl enc -des3 -d -in .svar.bin -out .svar -pass pass:$pass || { echo "decryption failed"; return 1; }
+  [ -f .svar ] && rm .svar.bin
 }
 
 # NOTE: This method is still unsafe. Add checks to ensure you can only use this on file or folder directly in
