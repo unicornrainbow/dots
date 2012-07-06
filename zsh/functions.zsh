@@ -116,18 +116,18 @@ rails () {
 }
 
 svar () {
-  local pass=`security find-generic-password -g -a btaylor -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
   zsh -c "[ -f .svar.bin ] && openssl enc -d -des3 -in .svar.bin -pass pass:$pass | source /dev/stdin; command rails \"$@\""
 }
 
 svar-encrypt () {
-  local pass=`security find-generic-password -g -a btaylor -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
   openssl enc -des3 -in .svar -out .svar.bin -pass pass:$pass || { echo "encryption failed"; return 1; }
   [ -f .svar.bin ] && rm .svar
 }
 
 svar-decrypt () {
-  local pass=`security find-generic-password -g -a btaylor -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
   openssl enc -des3 -d -in .svar.bin -out .svar -pass pass:$pass || { echo "decryption failed"; return 1; }
   [ -f .svar ] && rm .svar.bin
 }
