@@ -116,6 +116,15 @@ rails () {
 }
 
 
+# svar <command>
+#
+# Runs a command in context with secret environment variables.
+#
+# Example:
+#
+#   svar rails c
+#   > ENV['SECRET']   # => shhh!
+#
 # TODO: Unbind for the rails command, this need to be independent.
 svar () {
   if [ -f .svar.lock ]; then
@@ -132,6 +141,8 @@ svar () {
   fi
 }
 
+# Lock the contents of .svar by encrypting with the keychain password.
+# Note: By convention, the keychain password used is named svar-<dirname> and account matches the user.
 # TODO change to svar --lock or svar -l
 svar-lock () {
   local pass=`security find-generic-password -g -a $(whoami) -s svar-${PWD##*/} 2>&1 | grep password | cut -d '"' -f 2`
@@ -139,6 +150,7 @@ svar-lock () {
   [ -f .svar.lock ] && rm .svar
 }
 
+# Unlock the .svar.lock file, place placing output in .svar using keychain password
 # TODO: change to svar --unlock or svar -u
 svar-unlock () {
   local pass=`security find-generic-password -g -a $(whoami) -s svar-${PWD##*/} 2>&1 | grep password | cut -d '"' -f 2`
@@ -146,6 +158,7 @@ svar-unlock () {
   [ -f .svar ] && rm .svar.lock
 }
 
+# Initalizes a directory/project for svar. Creates .svar file and generates password in keychain if neccesary.
 # TODO: change to svar --init
 # TODO: Add better output
 svar-init () {
