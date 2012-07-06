@@ -115,30 +115,50 @@ rails () {
   fi
 }
 
+
+# TODO: Unbind for the rails command, this need to be independent.
 svar () {
   if [ -f .svar.lock ]; then
-    local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
-    zsh -c "[ -f .svar.lock ] && openssl enc -d -des3 -in .svar.lock -pass pass:$pass | source /dev/stdin; command rails \"$@\""
+    local pass=`security find-generic-password -g -a $(whoami) -s svar-${PWD##*/} 2>&1 | grep password | cut -d '"' -f 2`
+    zsh -c "openssl enc -d -des3 -in .svar.lock -pass pass:$pass | source /dev/stdin; command rails \"$@\""
   else
     if [ -f .svar ]; then
-      echo ".svar is not locked, please lock it first then try again."
+      echo "WARNING!!! .svar is not locked."
+      zsh -c "source .svar; command rails \"$@\""
     else
-      echo "No .svar or .svar.lock file found"
+      echo "No .svar or .svar.lock file found."
     fi
 
   fi
 }
 
+# TODO change to svar --lock or svar -l
 svar-lock () {
-  local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  local pass=`security find-generic-password -g -a $(whoami) -s svar-${PWD##*/} 2>&1 | grep password | cut -d '"' -f 2`
   openssl enc -des3 -in .svar -out .svar.lock -pass pass:$pass || { echo "encryption failed"; return 1; }
   [ -f .svar.lock ] && rm .svar
 }
 
+# TODO: change to svar --unlock or svar -u
 svar-unlock () {
-  local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
+  local pass=`security find-generic-password -g -a $(whoami) -s svar-${PWD##*/} 2>&1 | grep password | cut -d '"' -f 2`
   openssl enc -des3 -d -in .svar.lock -out .svar -pass pass:$pass || { echo "decryption failed"; return 1; }
   [ -f .svar ] && rm .svar.lock
+}
+
+# TODO: change to svar --init
+# TODO: Add better output
+svar-init () {
+  # Create the .svar file
+  [ -f .svar ] || [ -f .svar.lock ] || echo "# Add your secure environment variable here" > .svar
+  # Check for an svar variable for the project and account name. svar-doximity
+  local pass=`security find-generic-password -g -a $(whoami) -s svar-${PWD##*/} 2>&1 | grep password | cut -d '"' -f 2`
+  if [ "$pass" = '' ]; then
+    # If one is not found, prompt for one, default to random secure one on enter
+    # No password exists, create one for the user.q
+    echo "No password found for svar-${PWD##*/}, adding one to keychain now"
+    security add-generic-password -a $(whoami) -s svar-${PWD##*/} -w $(date | shasum | base64 | head -c 25)
+  fi
 }
 
 # NOTE: This method is still unsafe. Add checks to ensure you can only use this on file or folder directly in
