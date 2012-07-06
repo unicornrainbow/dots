@@ -110,7 +110,7 @@ rails () {
   if [ -e script/server ]; then
     script/"$@"
   else
-    command rails "$@"
+    bash -c "[ -f .env ] && source .env; command rails \"$@\""
   fi
 }
 
