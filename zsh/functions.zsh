@@ -132,6 +132,7 @@ svar () {
     zsh -c "openssl enc -d -des3 -in .svar.lock -pass pass:$pass | source /dev/stdin; command rails \"$@\""
   else
     if [ -f .svar ]; then
+      # TODO: Print warning in red
       echo "WARNING!!! .svar is not locked."
       zsh -c "source .svar; command rails \"$@\""
     else
@@ -144,6 +145,7 @@ svar () {
 # Lock the contents of .svar by encrypting with the keychain password.
 # Note: By convention, the keychain password used is named svar-<dirname> and account matches the user.
 # TODO change to svar --lock or svar -l
+# TODO: Make is svar can be edit right in vim, and encrypted on save. Would also be awesome to be able to see just the keys that are avaiable.
 svar-lock () {
   local pass=`security find-generic-password -g -a $(whoami) -s svar-${PWD##*/} 2>&1 | grep password | cut -d '"' -f 2`
   openssl enc -des3 -in .svar -out .svar.lock -pass pass:$pass || { echo "encryption failed"; return 1; }
