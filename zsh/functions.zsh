@@ -116,20 +116,29 @@ rails () {
 }
 
 svar () {
-  local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
-  zsh -c "[ -f .svar.bin ] && openssl enc -d -des3 -in .svar.bin -pass pass:$pass | source /dev/stdin; command rails \"$@\""
+  if [ -f .svar.lock ]; then
+    local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
+    zsh -c "[ -f .svar.lock ] && openssl enc -d -des3 -in .svar.lock -pass pass:$pass | source /dev/stdin; command rails \"$@\""
+  else
+    if [ -f .svar ]; then
+      echo ".svar is not locked, please lock it first then try again."
+    else
+      echo "No .svar or .svar.lock file found"
+    fi
+
+  fi
 }
 
-svar-encrypt () {
+svar-lock () {
   local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
-  openssl enc -des3 -in .svar -out .svar.bin -pass pass:$pass || { echo "encryption failed"; return 1; }
-  [ -f .svar.bin ] && rm .svar
+  openssl enc -des3 -in .svar -out .svar.lock -pass pass:$pass || { echo "encryption failed"; return 1; }
+  [ -f .svar.lock ] && rm .svar
 }
 
-svar-decrypt () {
+svar-unlock () {
   local pass=`security find-generic-password -g -a $(whoami) -s svar 2>&1 | grep password | cut -d '"' -f 2`
-  openssl enc -des3 -d -in .svar.bin -out .svar -pass pass:$pass || { echo "decryption failed"; return 1; }
-  [ -f .svar ] && rm .svar.bin
+  openssl enc -des3 -d -in .svar.lock -out .svar -pass pass:$pass || { echo "decryption failed"; return 1; }
+  [ -f .svar ] && rm .svar.lock
 }
 
 # NOTE: This method is still unsafe. Add checks to ensure you can only use this on file or folder directly in
