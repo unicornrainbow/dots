@@ -13,6 +13,9 @@ alias clean_assets='rm -rf public/javascripts/compiled public/stylesheets/compil
 # Easy access to git recent
 alias gr=git\ recent
 
+# Take a hexdump
+alias hd=hexdump\ -C
+
 # Super short aliases
 alias b=branch-status
 alias bm=branch-status-base-master
