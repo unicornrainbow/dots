@@ -9,11 +9,15 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline:h14
 let g:Powerline_symbols = 'fancy'
 
 " Ignore compiled assets
-set wildignore+=public/coffeescripts/**
-set wildignore+=public/assets/**
-set wildignore+=public/stylesheets/compiled/**
-set wildignore+=public/javascripts/compiled/**
+set wildignore+=public/assets/*
+set wildignore+=public/stylesheets/compiled/*
+set wildignore+=public/javascripts/compiled/*
 set wildignore+=tmp/**
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|hut$'
+    \ }
 
 " Clean Closing of Buffers.
 map fc <Esc>:call CleanClose(1)<CR>
