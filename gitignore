@@ -3,3 +3,4 @@
 .sessions/
 .svar
 .svar.lock
+.env.d/

@@ -340,3 +340,14 @@ js() {
 model_spec() {
   rails generate model $(basename -s ".rb" $1) -s --migration=false
 }
+
+# Shortcuts for connecting to huts
+hut  () { heroku "$@" --app $BLAKE_HUT }
+hut2 () { heroku "$@" --app $BLAKE_HUT2 }
+hut3 () { heroku "$@" --app $BLAKE_HUT3 }
+hut-all () {
+ for hut in $BLAKE_HUT1 $BLAKE_HUT2 $BLAKE_HUT3
+ do
+   heroku "$@" --app $hut
+ done
+}

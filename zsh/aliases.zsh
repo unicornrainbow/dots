@@ -10,11 +10,6 @@ alias cm='git commit -m'
 # Clean out pesky assets.
 alias clean_assets='rm -rf public/javascripts/compiled public/stylesheets/compiled public/assets'
 
-# Heroku
-alias ko=heroku
-alias tko=heroku\ logs\ --tail
-alias cko=heroku\ console
-
 # Easy access to git recent
 alias gr=git\ recent
 
