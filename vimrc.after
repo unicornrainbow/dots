@@ -168,3 +168,6 @@ map <Leader>sf :RSfunctionaltest
 
 " File highlighting
 au BufNewFile,BufRead *.jst set filetype=html
+
+" Disable Ex Mode
+map Q <Nop>
