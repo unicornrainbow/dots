@@ -24,6 +24,7 @@ set hidden
 
 " Color Scheme
 set background=dark
+colorscheme jellybeans
 
 " Folds
 set foldmethod=manual
