@@ -24,7 +24,7 @@ set hidden
 
 " Color Scheme
 set background=dark
-colorscheme jellybeans
+color jellybeans
 
 " Folds
 set foldmethod=manual
@@ -68,7 +68,7 @@ if has("autocmd")
 endif
 
 " Clear the search buffer when hitting return
-:nnoremap <cr> :nohlsearch<cr>
+" :nnoremap <cr> :nohlsearch<cr>
 
 " Ignorable Files
 set wildignore+=*.o,*.r,*.class,*.pyc,*.so,*.sl,*.tar,*.tgz,*.gz,*.dmg,*.zip
@@ -102,7 +102,7 @@ map = <C-W>+
 map - <C-W>-
 
 " Find merge conflict markers
-nmap <silent> <leader>cf <esc>/\v^[<=>]{7}( .*\|$)<cr>
+" nmap <silent> <leader>cf <esc>/\v^[<=>]{7}( .*\|$)<cr>
 
 " Plugins
 map <leader>a :Ack<space>
@@ -154,10 +154,6 @@ if has("gui_macvim")
 endif
 " Style
 set transparency=5
-
-" Colorscheme
-"color lucius
-color jellybeans
 
 " Mouse support in vim
 set mouse=a
@@ -236,8 +232,6 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 
-
-
 " Quit Nerd tree if it's the last open buffer.
 function! NERDTreeQuit()
   redir => buffersoutput
@@ -261,7 +255,8 @@ function! NERDTreeQuit()
     quitall
   endif
 endfunction
-autocmd WinEnter * call NERDTreeQuit()
+" Temporaily disabled.
+" autocmd WinEnter * call NERDTreeQuit()
 
 " ================ Scrolling ========================
 

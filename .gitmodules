@@ -10,3 +10,6 @@
 [submodule "vim/bundle/color_sampler_pack"]
 	path = vim/bundle/color_sampler_pack
 	url = git://github.com/vim-scripts/Color-Sampler-Pack.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/vim-scripts/The-NERD-tree.git
