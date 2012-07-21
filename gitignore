@@ -4,3 +4,4 @@
 .svar
 .svar.lock
 .env.d/
+.netrwhist
