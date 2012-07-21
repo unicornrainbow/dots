@@ -15,9 +15,9 @@ set wildignore+=public/javascripts/compiled/*
 set wildignore+=tmp/**
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.deploy$'
-    \ }
+" let g:ctrlp_custom_ignore = {
+"     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.deploy$'
+"     \ }
 
 " Clean Closing of Buffers.
 map fc <Esc>:call CleanClose(1)<CR>
