@@ -301,3 +301,7 @@ inoremap <D-j> <Esc>:m+<CR>==gi
 inoremap <D-k> <Esc>:m-2<CR>==gi
 vnoremap <D-j> :m'>+<CR>gv=gv
 vnoremap <D-k> :m-2<CR>gv=gv
+
+" Toggle comments
+" Commenting out, use <leader>c<space> instead
+"map <D-/> <leader>c<space>
