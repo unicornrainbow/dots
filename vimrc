@@ -152,3 +152,175 @@ if has("gui_macvim")
   set guioptions-=T
   set guifont=Monaco:h12
 endif
+" Style
+set transparency=5
+
+" Colorscheme
+"color lucius
+color jellybeans
+
+" Mouse support in vim
+set mouse=a
+
+" Delete Trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+" Turn tabs into spaces
+autocmd BufWritePre * :retab
+" Remove blank lines at end of file.
+autocmd BufWritePre * :v/\_s*\S/d
+
+" Quiet annoying bell.
+set visualbell
+
+" ,b to fuzzy search buffer.
+map <leader>b :CtrlPBuffer<CR>
+
+" Enter command mode with ;
+nmap ; :
+
+" ,p for fuzzy file (This overrides nerdtrees jumo to parent. Maybe not so
+" good.)
+map <leader>p :CtrlP<CR>
+
+" Don't manage working directory. Use whatever vim has.
+let g:ctrlp_working_path_mode = 0
+
+" Swap buffers with ,l
+nmap <leader>l <C-^>
+
+" +/- for resizing windows.
+map + 2<c-w>+
+map _ 2<c-w>-
+
+" Left to right window resizing
+" map <c-m> <c-w><
+" map <c-n> <c-w>>
+
+" Fullscreen
+" map <c-w>F <c-w>_<c-w><Bar>
+
+" Walk through window with arrows.
+map <c-Up> <c-w>k
+map <c-Down> <c-w>j
+map <c-Left> <c-w>h
+map <c-Right> <c-w>l
+
+" Pretty format xml.
+" type :PrettyXML
+function! DoPrettyXML()
+  " save the filetype so we can restore it later
+  let l:origft = &ft
+  set ft=
+  " delete the xml header if it exists. This will
+  " permit us to surround the document with fake tags
+  " without creating invalid xml.
+  1s/<?xml .*?>//e
+  " insert fake tags around the entire document.
+  " This will permit us to pretty-format excerpts of
+  " XML that may contain multiple top-level elements.
+  0put ='<PrettyXML>'
+  $put ='</PrettyXML>'
+  silent %!xmllint --format -
+  " xmllint will insert an <?xml?> header. it's easy enough to delete
+  " if you don't want it.
+  " delete the fake tags
+  2d
+  $d
+  " restore the 'normal' indentation, which is one extra level
+  " too deep due to the extra tags we wrapped around the document.
+  silent %<
+  " back to home
+  1
+  " restore the filetype
+  exe "set ft=" . l:origft
+endfunction
+command! PrettyXML call DoPrettyXML()
+
+
+
+" Quit Nerd tree if it's the last open buffer.
+function! NERDTreeQuit()
+  redir => buffersoutput
+  silent buffers
+  redir END
+"                     1BufNo  2Mods.     3File           4LineNo
+  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
+  let windowfound = 0
+
+  for bline in split(buffersoutput, "\n")
+    let m = matchlist(bline, pattern)
+
+    if (len(m) > 0)
+      if (m[2] =~ '..a..')
+        let windowfound = 1
+      endif
+    endif
+  endfor
+
+  if (!windowfound)
+    quitall
+  endif
+endfunction
+autocmd WinEnter * call NERDTreeQuit()
+
+" ================ Scrolling ========================
+
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
+" Open new tabs with cmmand-t
+imap <D-t> <Esc>:tabnew<CR>
+map <D-t> <Esc>:tabnew<CR>
+
+
+" ================ Syntax ============================
+" Show syntax highlighting groups for word under cursor with <C-S-P>
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+"Relative line numbers
+"autocmd BufEnter * set relativenumber
+
+" Disable arrow keys in vim
+noremap  <Up> <C-w><Up>
+noremap! <Up> <Esc>
+noremap  <Down> <C-w><Down>
+noremap! <Down> <Esc>
+noremap  <Left> <C-w><Left>
+noremap! <Left> <Esc>
+noremap  <Right> <C-w><Right>
+noremap! <Right> <Esc>
+
+
+" Handle splitting
+nmap ss :split<CR>
+nmap vv :vsplit<CR>
+
+" Leader shortcuts for Rails commands
+map <Leader>m :Rmodel
+map <Leader>c :Rcontroller
+map <Leader>v :Rview
+map <Leader>u :Runittest
+map <Leader>f :Rfunctionaltest
+map <Leader>tm :RTmodel
+map <Leader>tc :RTcontroller
+map <Leader>tv :RTview
+map <Leader>tu :RTunittest
+map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel
+map <Leader>sc :RScontroller
+map <Leader>sv :RSview
+map <Leader>su :RSunittest
+map <Leader>sf :RSfunctionaltest
+
+" File highlighting
+au BufNewFile,BufRead *.jst set filetype=html
+
+" Disable Ex Mode
+map Q <Nop>
