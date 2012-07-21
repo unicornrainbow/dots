@@ -16,6 +16,7 @@ for filename in\
   $ROOT/railsrc\
   $ROOT/screenrc\
   $ROOT/vimrc\
+  $ROOT/gvimrc\
   $ROOT/zshrc\
   $ROOT/dir_colors
 do
