@@ -282,14 +282,14 @@ endfunc
 "autocmd BufEnter * set relativenumber
 
 " Disable arrow keys in vim
-noremap  <Up> <C-w><Up>
-noremap! <Up> <Esc>
-noremap  <Down> <C-w><Down>
-noremap! <Down> <Esc>
-noremap  <Left> <C-w><Left>
-noremap! <Left> <Esc>
-noremap  <Right> <C-w><Right>
-noremap! <Right> <Esc>
+"noremap  <Up> <C-w><Up>
+"noremap! <Up> <Esc>
+"noremap  <Down> <C-w><Down>
+"noremap! <Down> <Esc>
+"noremap  <Left> <C-w><Left>
+"noremap! <Left> <Esc>
+"noremap  <Right> <C-w><Right>
+"noremap! <Right> <Esc>
 
 
 " Handle splitting
@@ -298,7 +298,6 @@ nmap vv :vsplit<CR>
 
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel
-map <Leader>c :Rcontroller
 map <Leader>v :Rview
 map <Leader>u :Runittest
 map <Leader>f :Rfunctionaltest
