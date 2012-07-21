@@ -115,7 +115,7 @@ map <leader>gd :Gdiff<cr>
 map <leader>c :Rcontroller<space>
 map <leader>m :Rmodel<space>
 map <leader>v :Rview<space>
-map <leader>n :NERDTree<cr>
+map <leader>n :NERDTreeToggle<cr>
 map <Leader>rp :PromptVimTmuxCommand<CR>
 map <Leader>rl :RunLastVimTmuxCommand<CR>
 map <Leader>ri :InspectVimTmuxRunner<CR>
@@ -231,32 +231,6 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 
-" Quit Nerd tree if it's the last open buffer.
-function! NERDTreeQuit()
-  redir => buffersoutput
-  silent buffers
-  redir END
-"                     1BufNo  2Mods.     3File           4LineNo
-  let pattern = '^\s*\(\d\+\)\(.....\) "\(.*\)"\s\+line \(\d\+\)$'
-  let windowfound = 0
-
-  for bline in split(buffersoutput, "\n")
-    let m = matchlist(bline, pattern)
-
-    if (len(m) > 0)
-      if (m[2] =~ '..a..')
-        let windowfound = 1
-      endif
-    endif
-  endfor
-
-  if (!windowfound)
-    quitall
-  endif
-endfunction
-" Temporaily disabled.
-" autocmd WinEnter * call NERDTreeQuit()
-
 " ================ Scrolling ========================
 
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
@@ -266,7 +240,6 @@ set sidescroll=1
 " Open new tabs with cmmand-t
 imap <D-t> <Esc>:tabnew<CR>
 map <D-t> <Esc>:tabnew<CR>
-
 
 " ================ Syntax ============================
 " Show syntax highlighting groups for word under cursor with <C-S-P>
