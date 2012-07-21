@@ -114,6 +114,7 @@ map <leader>gb :Gblame<cr>
 map <leader>gd :Gdiff<cr>
 map <leader>c :Rcontroller<space>
 map <leader>m :Rmodel<space>
+map <leader>a :A
 map <leader>v :Rview<space>
 map <leader>n :NERDTreeToggle<cr>
 map <Leader>rp :PromptVimTmuxCommand<CR>
