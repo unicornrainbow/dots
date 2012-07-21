@@ -139,7 +139,6 @@ let g:EasyMotion_leader_key=";"
 let g:NERDTreeWinSize=30
 let g:Powerline_symbols="fancy"
 let g:Powerline_theme="default"
-let g:Powerline_colorscheme="skwp"
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 
