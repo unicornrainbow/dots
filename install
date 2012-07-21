@@ -4,6 +4,7 @@ ROOT=$(cd $(dirname $0); pwd -P)
 
 ln -hfs $ROOT/zsh         $HOME/.zsh
 ln -hfs $ROOT/oh-my-zsh   $HOME/.oh-my-zsh
+ln -hfs $ROOT/vim         $HOME/.vim
 
 for filename in\
   $ROOT/gemrc\
@@ -14,8 +15,7 @@ for filename in\
   $ROOT/pryrc\
   $ROOT/railsrc\
   $ROOT/screenrc\
-  $ROOT/vimrc.after\
-  $ROOT/vimrc.before\
+  $ROOT/vimrc\
   $ROOT/zshrc\
   $ROOT/dir_colors
 do
