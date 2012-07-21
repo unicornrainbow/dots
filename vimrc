@@ -318,3 +318,6 @@ au BufNewFile,BufRead *.jst set filetype=html
 
 " Disable Ex Mode
 map Q <Nop>
+
+"Go to last edit location with ,.
+nnoremap ,. '.
