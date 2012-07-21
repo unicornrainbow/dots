@@ -129,7 +129,7 @@ nmap <Leader>sm :silent !open /Applications/Sequel\ Pro.app<CR>
 nmap <Leader>ss :silent !open /Applications/Skype.app<CR>
 
 let g:rails_statusline=0
-let g:ctrlp_map="<leader>f"
+let g:ctrlp_map="<leader>p"
 let g:ctrlp_custom_ignore="\.git$"
 let g:gist_clip_command="pbcopy"
 let g:gist_detect_filetype=1
