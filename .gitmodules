@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim_slim"]
 	path = vim/bundle/vim_slim
 	url = git://github.com/bbommarito/vim-slim.git
+[submodule "vim/bundle/rename"]
+	path = vim/bundle/rename
+	url = git://github.com/vim-scripts/Rename.git
