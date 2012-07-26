@@ -106,7 +106,8 @@ map - <C-W>-
 " nmap <silent> <leader>cf <esc>/\v^[<=>]{7}( .*\|$)<cr>
 
 " Plugins
-map <leader>a :Ack<space>
+"map <leader>a :Ack<space>
+map <leader>a :A<cr>
 map <leader>g<space> :Git<space>
 map <leader>gs :Gstatus<cr>
 map <leader>gr :Gread<cr>
@@ -115,7 +116,6 @@ map <leader>gb :Gblame<cr>
 map <leader>gd :Gdiff<cr>
 map <leader>c :Rcontroller<space>
 map <leader>m :Rmodel<space>
-map <leader>a :A
 map <leader>v :Rview<space>
 map <leader>n :NERDTreeToggle<cr>
 map <Leader>rp :PromptVimTmuxCommand<CR>
