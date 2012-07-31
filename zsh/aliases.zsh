@@ -1,5 +1,9 @@
 ### Aliases ###
 
+# Easy editing of aliases and functions
+alias ea='vi ~/.zsh/aliases.zsh'
+alias ef='vi ~/.zsh/functions.zsh'
+
 # Review some commits
 alias logme='git log --all --since="6am" --until="today" --format="[%h]  %s %an" | grep $@ -i'
 #alias logcount='$(logme $@) | wc'
