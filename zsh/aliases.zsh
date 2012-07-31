@@ -177,3 +177,6 @@ alias jscolor='pygmentize -f terminal256 -l javascript -O style=native'
 
 #When I know the file I want to edit is the most recent file in a directory
 alias vew='vi `l\s -t * | head -1 `'
+
+# Deploy helpers
+alias ckmigs='git diff production/master..HEAD db'
