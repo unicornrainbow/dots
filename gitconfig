@@ -138,7 +138,7 @@
 [core]
   quotepath = false
   autocrlf = false
-	excludesfile = /Users/btaylor/.gitignore
+  excludesfile = /Users/btaylor/.gitignore
 [apply]
   whitespace = nowarn
 [diff]
@@ -146,4 +146,4 @@
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
 [help]
-  autocorrect = 1
+  autocorrect = 0
