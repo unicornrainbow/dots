@@ -152,9 +152,10 @@ if has("gui_macvim")
   set guioptions-=L
   set guioptions-=T
   set guifont=Monaco:h12
+
+  " Style
+  set transparency=5
 endif
-" Style
-set transparency=5
 
 " Mouse support in vim
 set mouse=a
