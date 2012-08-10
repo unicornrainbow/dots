@@ -308,3 +308,16 @@ vnoremap <D-k> :m-2<CR>gv=gv
 " Toggle comments
 " Commenting out, use <leader>c<space> instead
 "map <D-/> <leader>c<space>
+
+
+" Execute open rspec buffer
+" Thanks to Ian Smith-Heisters
+function! RunSpec(args)
+ execute ":! rspec % -cfn " . a:args
+endfunction
+
+" Mappings
+" run one rspec example or describe block based on cursor position
+map !s :call RunSpec("-l " . <C-r>=line('.')<CR>)
+" run full rspec file
+map !S :call RunSpec("")
