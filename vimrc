@@ -92,8 +92,6 @@ command! Wq wq
 command! Qall qall
 
 " Splitting, resizing and moving around split windows
-map <C-S> :split<CR>
-map <C-V> :vsplit<CR>
 map <C-H> <C-W>h
 map <C-J> <C-W>j
 map <C-K> <C-W>k
