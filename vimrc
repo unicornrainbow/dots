@@ -319,6 +319,3 @@ endfunction
 map !s :call RunSpec("-l " . <C-r>=line('.')<CR>)
 " run full rspec file
 map !S :call RunSpec("")
-
-" Remove highlighting with ESC, hit n to reenable
-nnoremap <esc> :noh<return><esc>
