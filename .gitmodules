@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vimwiki"]
 	path = vim/bundle/vimwiki
 	url = git://github.com/vim-scripts/vimwiki.git
+[submodule "vim/bundle/vim-slim"]
+	path = vim/bundle/vim-slim
+	url = git://github.com/bbommarito/vim-slim.git
