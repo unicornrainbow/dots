@@ -163,7 +163,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " Turn tabs into spaces
 autocmd BufWritePre * :retab
 " Remove blank lines at end of file.
-autocmd BufWritePre * :v/\_s*\S/d
+"autocmd BufWritePre * :v/\_s*\S/d
 
 " Quiet annoying bell.
 set visualbell
