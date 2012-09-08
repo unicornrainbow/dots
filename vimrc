@@ -3,13 +3,6 @@ set nocompatible
 set encoding=utf-8
 set modelines=0
 
-" Set a textwrap
-set tw=80
-
-" Turn on spelling checking for text files.
-autocmd BufNewFile,BufRead *.txt setlocal spell
-autocmd BufNewFile,BufRead *.md  setlocal spell
-
 " Pathogen
 call pathogen#infect()
 filetype plugin indent on
@@ -28,6 +21,13 @@ set backspace=indent,eol,start
 set clipboard=unnamed
 set history=50
 set hidden
+
+" Set a textwrap
+set tw=80
+
+" Turn on spelling checking for text files.
+autocmd BufNewFile,BufRead *.txt setlocal spell
+autocmd BufNewFile,BufRead *.md  setlocal spell
 
 " Color Scheme
 set background=dark
