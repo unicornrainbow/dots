@@ -170,8 +170,13 @@ autocmd BufWritePre * silent! %s/\s\+$//e
 " Turn tabs into spaces
 autocmd BufWritePre * silent! retab
 " Remove blank lines at end of file.
-autocmd BufWritePre * silent! v/\_s*\S/d
-
+function! <SID>DelEmptyLinesEnd()
+    let l = line(".")
+    let c = col(".")
+    v/\_s*\S/d
+    call cursor(l, c)
+endfunction
+autocmd BufWritePre * :call <SID>DelEmptyLinesEnd()
 
 " Quiet annoying bell.
 set visualbell
