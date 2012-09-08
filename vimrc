@@ -3,6 +3,9 @@ set nocompatible
 set encoding=utf-8
 set modelines=0
 
+" Set a textwrap
+set tw=80
+
 " Pathogen
 call pathogen#infect()
 filetype plugin indent on
