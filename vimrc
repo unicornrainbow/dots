@@ -6,6 +6,10 @@ set modelines=0
 " Set a textwrap
 set tw=80
 
+" Turn on spelling checking for text files.
+autocmd BufNewFile,BufRead *.txt setlocal spell
+autocmd BufNewFile,BufRead *.md  setlocal spell
+
 " Pathogen
 call pathogen#infect()
 filetype plugin indent on
