@@ -166,11 +166,12 @@ endif
 set mouse=a
 
 " Delete Trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * silent! %s/\s\+$//e
 " Turn tabs into spaces
-autocmd BufWritePre * :retab
+autocmd BufWritePre * silent! retab
 " Remove blank lines at end of file.
-"autocmd BufWritePre * :v/\_s*\S/d
+autocmd BufWritePre * silent! v/\_s*\S/d
+
 
 " Quiet annoying bell.
 set visualbell
