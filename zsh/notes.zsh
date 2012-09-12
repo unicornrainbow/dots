@@ -24,7 +24,7 @@ notes-last(){
 notes-ls(){
   # Display notes reverse cronigically
   local OUTPUT=$(mktemp -t notes)
-  for file in $(find $NOTES_ROOT -type f | sort -r); do
+  for file in $(find $NOTES_ROOT -type f | sort -r | head -n 30); do
     echo "\n=== $file ===\n" >> $OUTPUT
     cat $file >> $OUTPUT
     echo "\n" >> $OUTPUT
@@ -37,6 +37,3 @@ notes-ls(){
 notes-done(){
   notes-ls | grep "@done($(date "+%Y-%m-$1")"
 }
-
-
-
