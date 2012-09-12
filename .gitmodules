@@ -55,3 +55,6 @@
 [submodule "vim/bundle/vim-jade"]
 	path = vim/bundle/vim-jade
 	url = git://github.com/digitaltoad/vim-jade.git
+[submodule "vim/bundle/renamer"]
+	path = vim/bundle/renamer
+	url = git://github.com/vim-scripts/renamer.vim.git
