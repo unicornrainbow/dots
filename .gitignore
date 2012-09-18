@@ -1,3 +1,4 @@
 .DS_Store
 zsh/protected
 vim/backup
+vim/.netrwhist
