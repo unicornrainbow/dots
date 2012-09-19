@@ -2,9 +2,9 @@
 
 ROOT=$(cd $(dirname $0); pwd -P)
 
-ln -hfs $ROOT/zsh         $HOME/.zsh
-ln -hfs $ROOT/oh-my-zsh   $HOME/.oh-my-zsh
-ln -hfs $ROOT/vim         $HOME/.vim
+cp -R $ROOT/zsh         $HOME/.zsh
+cp -R $ROOT/oh-my-zsh   $HOME/.oh-my-zsh
+cp -R $ROOT/vim         $HOME/.vim
 
 for filename in\
   $ROOT/gemrc\
@@ -22,6 +22,6 @@ for filename in\
 do
   if [ -f $filename ]; then
     echo "linking $filename"
-    ln -f $filename ~/.$(basename $filename)
+    cp $filename ~/.$(basename $filename)
   fi
 done
