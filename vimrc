@@ -34,8 +34,10 @@ set background=dark
 color jellybeans
 
 " Folds
-set foldmethod=manual
-set nofoldenable
+set foldmethod=syntax   "fold based on syntax
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 " Indent
 set autoindent
