@@ -48,7 +48,7 @@ export PATH=`gem env gemdir`:$PATH
 export CC=gcc-4.2
 
 # Initialize rebenv
-eval "$(rbenv init -)"
+[[ "$(which rbenv)" != "" ]] && eval "$(rbenv init -)"
 
 # Configure node
 export NODE_PATH=/usr/local/lib/node
