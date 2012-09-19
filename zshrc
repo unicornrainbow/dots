@@ -23,7 +23,7 @@ fi
 unsetopt correct_all
 
 ## ls colors for osx
-if [[ "$(which gls)" != "" ]]; then
+if [[ "$(which gls)" != "gls not found" ]]; then
   eval `gdircolors`
   alias ls='gls -hF --color=auto'
   zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -50,7 +50,7 @@ export PATH=`gem env gemdir`:$PATH
 export CC=gcc-4.2
 
 # Initialize rebenv
-[[ "$(which rbenv)" != "" ]] && eval "$(rbenv init -)"
+[[ "$(which rbenv)" != "rbenv not found" ]] && eval "$(rbenv init -)"
 
 # Configure node
 export NODE_PATH=/usr/local/lib/node
