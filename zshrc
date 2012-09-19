@@ -22,10 +22,12 @@ fi
 # Disable auto correct
 unsetopt correct_all
 
-## Colors
-eval `gdircolors`
-alias ls='gls -hF --color=auto'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+## ls colors for osx
+if [[ "$(which gls)" != "" ]]; then
+  eval `gdircolors`
+  alias ls='gls -hF --color=auto'
+  zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+fi
 
 ## Use mvim in console mode
 alias vim='mvim -v'
