@@ -334,3 +334,6 @@ endfunction
 map !s :call RunSpec("-l " . <C-r>=line('.')<CR>)
 " run full rspec file
 map !S :call RunSpec("")
+
+au BufWinLeave *.rb mkview
+au BufWinEnter *.rb silent loadview
