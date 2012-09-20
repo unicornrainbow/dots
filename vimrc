@@ -337,3 +337,6 @@ map !S :call RunSpec("")
 
 au BufWinLeave *.rb mkview
 au BufWinEnter *.rb silent loadview
+
+" Save my eyes! Decent syntax highlighting for erb.
+autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
