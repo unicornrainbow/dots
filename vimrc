@@ -187,7 +187,7 @@ set visualbell
 map <leader>b :CtrlPBuffer<CR>
 
 " Enter command mode with ;
-"nmap ; :
+nmap ; :
 
 " ,p for fuzzy file (This overrides nerdtrees jumo to parent. Maybe not so
 " good.)
