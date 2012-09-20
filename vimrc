@@ -340,3 +340,10 @@ au BufWinEnter *.rb silent loadview
 
 " Save my eyes! Decent syntax highlighting for erb.
 autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
+
+
+" Support for mobile_app filetype
+autocmd BufNewFile,BufRead *.mobile.erb     let b:eruby_subtype = 'html'
+autocmd BufNewFile,BufRead *.mobile_app.erb let b:eruby_subtype = 'html'
+autocmd BufNewFile,BufRead *.mobile.erb     set syntax=eruby
+autocmd BufNewFile,BufRead *.mobile_app.erb set syntax=eruby
