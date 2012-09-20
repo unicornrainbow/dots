@@ -66,7 +66,7 @@ set directory=~/.vim/backup
 set tags=./tags
 
 let mapleader=","
-inoremap jj <esc>
+inoremap jj <ESC>:w<cr>
 
 if has("autocmd")
   " Auto-close fugitive buffers
