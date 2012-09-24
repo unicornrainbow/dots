@@ -44,7 +44,7 @@ set autoindent
 set smartindent
 
 " List Characters
-set listchars=tab:▸\ ,trail:·
+"set listchars=tab:▸\ ,trail:·
 
 " Searching
 set hlsearch
