@@ -351,3 +351,33 @@ hut-all () {
    heroku "$@" --app $hut
  done
 }
+
+gg_replace() {
+  if [[ "$#" == "0" ]]; then
+    echo 'Usage:'
+    echo '  gg_replace term replacement file_mask'
+    echo
+    echo 'Example:'
+    echo '  gg_replace cappuchino cappuccino *.html'
+    echo
+  else
+    find=$1; shift
+    replace=$1; shift
+
+    ORIG_GLOBIGNORE=$GLOBIGNORE
+    GLOBIGNORE=*.*
+
+    if [[ "$#" = "0" ]]; then
+      set -- ' ' $@
+    fi
+
+    while [[ "$#" -gt "0" ]]; do
+      for file in `git grep -l $find -- $1`; do
+        sed -e "s/$find/$replace/g" -i'' $file
+      done
+      shift
+    done
+
+    GLOBIGNORE=$ORIG_GLOBIGNORE
+  fi
+}
