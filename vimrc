@@ -92,6 +92,7 @@ set wildignore+=*/node_modules/*
 set wildignore+=*/public/assets/*
 set wildignore+=*/public/javascripts/compiled/*
 set wildignore+=*/public/stylesheets/compiled/*
+set wildignore+=*/public/coffeescripts/*
 set wildignore+=*/.deploy/*
 
 " Bind :Q to :q and :W to :w
