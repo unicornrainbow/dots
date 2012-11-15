@@ -347,3 +347,6 @@ autocmd BufNewFile,BufRead *.mobile.erb     let b:eruby_subtype = 'html'
 autocmd BufNewFile,BufRead *.mobile_app.erb let b:eruby_subtype = 'html'
 autocmd BufNewFile,BufRead *.mobile.erb     set syntax=eruby
 autocmd BufNewFile,BufRead *.mobile_app.erb set syntax=eruby
+
+" Vim Wiki
+let g:vimwiki_list = [{'path': '~/Dropbox/wiki', 'path_html': '~/Dropbox/wiki_html'}]
