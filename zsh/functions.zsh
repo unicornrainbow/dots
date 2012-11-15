@@ -373,7 +373,7 @@ gg_replace() {
 
     while [[ "$#" -gt "0" ]]; do
       for file in `git grep -l $find -- $1`; do
-        sed -e "s/$find/$replace/g" -i'' $file
+        sed -i "" -e "s/$find/$replace/g" $file
       done
       shift
     done
