@@ -41,7 +41,11 @@ set foldlevel=1         "this is just what i use
 
 " Indent
 set autoindent
+set cindent
 set smartindent
+filetype on
+filetype plugin on
+filetype indent on
 
 " List Characters
 "set listchars=tab:▸\ ,trail:·
@@ -351,3 +355,14 @@ autocmd BufNewFile,BufRead *.mobile_app.erb set syntax=eruby
 
 " Vim Wiki
 let g:vimwiki_list = [{'path': '~/Dropbox/wiki', 'path_html': '~/Dropbox/wiki_html'}]
+
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+
+" Make sure taglist get a copy to exuberant ctags and not gnu ctags
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+" ,ct to toggle cats
+nmap <leader>ct :TlistToggle<CR>
