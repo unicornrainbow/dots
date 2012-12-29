@@ -366,3 +366,13 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 " ,ct to toggle cats
 nmap <leader>ct :TlistToggle<CR>
+
+
+function! DisableIndent()
+        set autoindent&
+        set cindent&
+        set smartindent&
+        set indentexpr&
+endfunction
+
+au filetype vimwiki call DisableIndent()
