@@ -285,6 +285,9 @@ endfunc
 "noremap  <Right> <C-w><Right>
 "noremap! <Right> <Esc>
 
+" Toggle pane with tt
+nmap tt <C-w>ww
+
 
 " Handle splitting
 nmap ss :split<CR>
