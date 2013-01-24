@@ -379,3 +379,6 @@ function! DisableIndent()
 endfunction
 
 au filetype vimwiki call DisableIndent()
+
+" Unload buffers when I closeing tabs
+set nohidden
