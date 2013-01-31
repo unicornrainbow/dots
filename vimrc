@@ -22,6 +22,9 @@ set clipboard=unnamed
 set history=50
 set hidden
 
+" Open new splits to the right
+set splitright
+
 " Set a textwrap
 set tw=80
 
