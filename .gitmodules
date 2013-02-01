@@ -61,3 +61,6 @@
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
 	url = git@github.com:vim-scripts/bufexplorer.zip.git
+[submodule "vim/bundle/seek"]
+	path = vim/bundle/seek
+	url = git://github.com/goldfeld/vim-seek.git
