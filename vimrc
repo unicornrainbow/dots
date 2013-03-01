@@ -384,6 +384,9 @@ endfunction
 
 au filetype vimwiki call DisableIndent()
 
+" RABL Highlighting
+au BufRead,BufNewFile *.rabl setf ruby
+
 " Unload buffers when I closeing tabs
 set nohidden
 
