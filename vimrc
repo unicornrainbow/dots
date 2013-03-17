@@ -423,3 +423,7 @@ function! Wipeout()
   endtry
 endfunction
 command! Wipeout :call Wipeout()
+
+" Disable spelling for help http://stackoverflow.com/a/13899772/32384
+autocmd BufEnter /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set nospell
+autocmd BufLeave /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set spell
