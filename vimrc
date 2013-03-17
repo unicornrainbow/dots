@@ -22,6 +22,9 @@ set clipboard=unnamed
 set history=50
 set hidden
 
+" Set wildmenu, this is essential
+set wildmenu
+
 " Open new splits to the right
 set splitright
 
