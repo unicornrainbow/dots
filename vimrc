@@ -280,7 +280,7 @@ function! <SID>SynStack()
 endfunc
 
 "Relative line numbers
-"autocmd BufEnter * set relativenumber
+autocmd BufEnter * set relativenumber
 
 " Disable arrow keys in vim
 "noremap  <Up> <C-w><Up>
