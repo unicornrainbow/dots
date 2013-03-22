@@ -280,7 +280,8 @@ function! <SID>SynStack()
 endfunc
 
 "Relative line numbers
-autocmd BufEnter * set relativenumber
+" This real slows down moving up and down line by line
+"autocmd BufEnter * set relativenumber
 
 " Disable arrow keys in vim
 "noremap  <Up> <C-w><Up>
