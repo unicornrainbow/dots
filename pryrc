@@ -5,8 +5,8 @@ Pry.config.editor = "mvim --nofork"
 Pry.prompt = [proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
 # awesome print
-require 'awesome_print'
-Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
+#require 'awesome_print'
+#Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
 
 # Toys methods
 # Stealed from https://gist.github.com/807492
