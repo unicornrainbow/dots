@@ -109,7 +109,7 @@ alias c=clear
 alias cl=c\;l
 
 # Rails
-alias s='rails server'
+alias s='zeus server'
 
 # Turn this into a function, if the file does not exisit, create it.
 alias todo='open ~/notes/todo/$(basename `pwd`)'
