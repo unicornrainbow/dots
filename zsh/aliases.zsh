@@ -108,9 +108,6 @@ alias recent='ls -lt | head -n 20'
 alias c=clear
 alias cl=c\;l
 
-# Rails
-alias s='zeus server'
-
 # Turn this into a function, if the file does not exisit, create it.
 alias todo='open ~/notes/todo/$(basename `pwd`)'
 
@@ -145,10 +142,10 @@ alias jinkies='open http://jinkies.heroku.com/job/$(vcprompt -f "%b")'
 # Link schema example to schema
 alias scln='ln -Ff db/schema.example.rb db/schema.rb'
 
-alias migrate='rake db:migrate db:test:load'
+alias migrate='zeus rake db:migrate db:test:load'
 
-alias migrate_last='rake db:migrate:up VERSION=$(latest_migration)'
-alias rollback_last='rake db:migrate:down VERSION=$(latest_migration)'
+alias migrate_last='zeus rake db:migrate:up VERSION=$(latest_migration)'
+alias rollback_last='zeus rake db:migrate:down VERSION=$(latest_migration)'
 
 alias tp='heroku logs --tail --app $PROD'
 alias prod='heroku console --app $PROD'
@@ -183,3 +180,7 @@ alias vew='vi `l\s -t * | head -1 `'
 
 # Deploy helpers
 alias ckmigs='git diff production/master..HEAD db'
+
+# Rails
+alias s='zeus server'
+alias rc='zeus console'
