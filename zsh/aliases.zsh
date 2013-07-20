@@ -108,8 +108,7 @@ alias recent='ls -lt | head -n 20'
 alias c=clear
 alias cl=c\;l
 
-# Turn this into a function, if the file does not exisit, create it.
-alias todo='open ~/notes/todo/$(basename `pwd`)'
+alias todos='open ~/todos/master.taskpaper'
 
 # Unmount disk
 alias um='diskutil umount'
