@@ -37,3 +37,7 @@ notes-ls(){
 notes-done(){
   notes-ls | grep "@done($(date "+%Y-%m-$1")"
 }
+
+notes-grep(){
+  grep -R $1 $NOTES_ROOT
+}
