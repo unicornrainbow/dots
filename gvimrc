@@ -19,10 +19,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 "     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.deploy$'
 "     \ }
 
-" Clean Closing of Buffers.
-map fc <Esc>:call CleanClose(1)<CR>
-map fq <Esc>:call CleanClose(0)<CR>
-
 function! CleanClose(tosave)
 if (a:tosave == 1)
     w!
