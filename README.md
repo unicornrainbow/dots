@@ -11,3 +11,15 @@ Run install.
 
     ./install
 
+## Adding a Vim Bundle
+
+Just add a submodule for the bundle to the vim/bundle directory.
+
+Example:
+
+  git submodule add git://github.com/groenewege/vim-less.git vim/bundle/vim-less
+
+
+## Updating Vim Bundle Submodules
+
+???
