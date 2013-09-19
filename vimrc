@@ -432,6 +432,11 @@ command! Wipeout :call Wipeout()
 autocmd BufEnter /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set nospell
 autocmd BufLeave /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set spell
 
+augroup ProjectSetup
+" Set 4 space tabs for lpc
+au BufRead,BufEnter /Users/blake/Projects/launchpadcentral/* set noet sts=4 shiftwidth=4 cindent
+augroup END
+
 
 " Copy file name to clipboard with ,cs and ,cl
 nmap ,cs :let @*=expand("%")<CR>
