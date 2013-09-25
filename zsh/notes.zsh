@@ -11,7 +11,18 @@ alias note=notes
 # Create a new note.
 notes-new(){
   if [ "$1" != '' ]; then
-    local DIR="$NOTES_ROOT/$1/entries/$(date +%Y)/$(date +%m)/$(date +%d)"
+    local TOPICS_DIR="$NOTES_ROOT/$1"
+    # Prompt or abort if the topic directory doesn't exist.
+    if [ ! -d $TOPICS_DIR ]; then
+      echo "Do you wish to create topic $1?"
+      select yn in "Yes" "No"; do
+          case $yn in
+              Yes ) break;;
+              No ) return;;
+          esac
+      done
+    fi
+    local DIR="$TOPICS_DIR/entries/$(date +%Y)/$(date +%m)/$(date +%d)"
   else
     local DIR="$NOTES_ROOT/entries/$(date +%Y)/$(date +%m)/$(date +%d)"
   fi
