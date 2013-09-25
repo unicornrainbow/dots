@@ -1,0 +1,32 @@
+#compdef notes
+
+_notes() {
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+
+    _arguments \
+        '1: :->cmd'\
+        '*: :->topic'
+
+    case $state in
+    cmd)
+        _arguments '1:Command:(new ls last topics)'
+    ;;
+    *)
+        case $words[2] in
+        new)
+            compadd "$@" $(ls $NOTES_ROOT | grep -v entries)
+        ;;
+        ls)
+            compadd "$@" $(ls $NOTES_ROOT | grep -v entires)
+        ;;
+        last)
+            compadd "$@" $(ls $NOTES_ROOT | grep -v entires)
+        ;;
+        *)
+            _files -W $NOTES_ROOT
+        esac
+    esac
+}
+
+_notes "$@"

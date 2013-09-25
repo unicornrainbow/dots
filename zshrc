@@ -105,6 +105,17 @@ __git_files () {
 # Things I don't want to publish to github
 [[ -s "$HOME/.secrets" ]] && source "$HOME/.secrets"
 
+# COMPLETION SETTINGS
+# add custom completion scripts
+fpath=(~/.zsh/completion $fpath)
+
+# compsys initialization
+autoload -U compinit
+compinit
+
+# show completion menu when number of options is at least 2
+zstyle ':completion:*' menu select=2
+
 # Load all other scripts.
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
