@@ -434,7 +434,7 @@ autocmd BufLeave /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/v
 
 augroup ProjectSetup
 " Set 4 space tabs for lpc
-au BufRead,BufEnter /Users/blake/Projects/launchpadcentral/* set noet sts=4 shiftwidth=4 cindent
+au BufRead,BufEnter /Users/blake/Projects/launchpadcentral/* set tabstop=4 softtabstop=4 shiftwidth=4 expandtab cindent
 augroup END
 
 
