@@ -1,6 +1,7 @@
 #! /usr/bin/env zsh
 
 export NOTES_ROOT=~/Dropbox/Notes
+export NOTEBOOKS_ROOT=~/Dropbox/Notebooks
 
 notes(){
   [ "$1" = '' ] && echo "Usage: notes [new|ls]" && return
@@ -10,21 +11,36 @@ alias note=notes
 
 # Create a new note.
 notes-new(){
-  local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
+  if [ "$1" != '' ]; then
+    local DIR="$NOTEBOOKS_ROOT/$1/$(date +%Y)/$(date +%m)/$(date +%d)"
+  else
+    local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
+  fi
   mkdir -p $DIR
   eval $EDITOR "$DIR/$(date +%T).txt"
 }
 
 notes-last(){
-  local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
+  if [ "$1" != '' ]; then
+    local DIR="$NOTEBOOKS_ROOT/$1/$(date +%Y)/$(date +%m)/$(date +%d)"
+  else
+    local DIR="$NOTES_ROOT/$(date +%Y)/$(date +%m)/$(date +%d)"
+  fi
   eval $EDITOR $DIR/$(ls -t $DIR | head -n 1)
 }
 
 # Review Notes
 notes-ls(){
   # Display notes reverse cronigically
-  local OUTPUT=$(mktemp -t notes)
-  for file in $(find $NOTES_ROOT -type f | sort -r | head -n 30); do
+  if [ "$1" != '' ]; then
+    local OUTPUT=$(mktemp -t notes)
+    local DIR="$NOTEBOOKS_ROOT/$1"
+  else
+    local OUTPUT=$(mktemp -t notebooks)
+    local DIR="$NOTES_ROOT"
+  fi
+
+  for file in $(find $DIR -type f | sort -r | head -n 30); do
     echo "\n=== $file ===\n" >> $OUTPUT
     cat $file >> $OUTPUT
     echo "\n" >> $OUTPUT
@@ -39,5 +55,5 @@ notes-done(){
 }
 
 notes-grep(){
-  grep -R $1 $NOTES_ROOT
+  grep -R $1 -C 10 $NOTES_ROOT
 }
