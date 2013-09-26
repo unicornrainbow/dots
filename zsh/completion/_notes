@@ -13,19 +13,7 @@ _notes() {
         _arguments '1:Command:(new ls last topics)'
     ;;
     *)
-        case $words[2] in
-        new)
-            compadd "$@" $(ls $NOTES_ROOT | grep -v entries)
-        ;;
-        ls)
-            compadd "$@" $(ls $NOTES_ROOT | grep -v entires)
-        ;;
-        last)
-            compadd "$@" $(ls $NOTES_ROOT | grep -v entires)
-        ;;
-        *)
-            _files -W $NOTES_ROOT
-        esac
+        _files -W $NOTES_ROOT
     esac
 }
 
