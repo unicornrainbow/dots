@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-export NOTES_ROOT=~/Dropbox/Notes
+export NOTES_ROOT=~/.notes
 
 notes(){
   [ "$1" = '' ] && echo "Usage: notes [new|ls]" && return
