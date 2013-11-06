@@ -195,6 +195,13 @@ autocmd BufWritePre * :call <SID>DelEmptyLinesEnd()
 " Quiet annoying bell.
 set visualbell
 
+" function for formatting json.
+function! DoFormatJSON()
+  :%!python -m json.tool
+endfunction
+
+command! FormatJSON call DoFormatJSON()
+
 " ,b to fuzzy search buffer.
 map <leader>b :CtrlPBuffer<CR>
 
@@ -230,7 +237,7 @@ map <c-Right> <c-w>l
 
 " Pretty format xml.
 " type :PrettyXML
-function! DoPrettyXML()
+function! DoFormatXML()
   " save the filetype so we can restore it later
   let l:origft = &ft
   set ft=
@@ -257,7 +264,7 @@ function! DoPrettyXML()
   " restore the filetype
   exe "set ft=" . l:origft
 endfunction
-command! PrettyXML call DoPrettyXML()
+command! FormatXML call DoFormatXML()
 
 " ================ Scrolling ========================
 
@@ -437,10 +444,10 @@ augroup ProjectSetup
 au BufRead,BufEnter /Users/blake/Projects/launchpadcentral/* set tabstop=4 softtabstop=4 shiftwidth=4 expandtab cindent
 augroup END
 
-
-" Copy file name to clipboard with ,cs and ,cl
-nmap ,cs :let @*=expand("%")<CR>
-nmap ,cl :let @*=expand("%:p")<CR>
+" ,yp - Yank absolute path
+nmap ,yp :let @*=expand("%:p")<CR>
+" .yr - Yank relative path
+nmap ,yr :let @*=expand("%")<CR>
 
 " Insert date with F5
 :nnoremap <F5> "=strftime("%c")<CR>P
