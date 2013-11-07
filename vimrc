@@ -452,3 +452,6 @@ nmap ,yr :let @*=expand("%")<CR>
 " Insert date with F5
 :nnoremap <F5> "=strftime("%c")<CR>P
 :inoremap <F5> <C-R>=strftime("%c")<CR>
+
+" Vim calulator http://vim.wikia.com/wiki/Using_vim_as_calculator
+:ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
