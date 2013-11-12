@@ -183,3 +183,6 @@ alias ckmigs='git diff production/master..HEAD db'
 # Rails
 alias s='zeus server'
 alias rc='zeus console'
+
+# Open last file edited in vim.
+alias lvim='vim -c "normal '\''0"'
