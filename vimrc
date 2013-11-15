@@ -372,7 +372,7 @@ autocmd BufNewFile,BufRead *.mobile.erb     set syntax=eruby
 autocmd BufNewFile,BufRead *.mobile_app.erb set syntax=eruby
 
 " Vim Wiki
-let g:vimwiki_list = [{'path': '~/Dropbox/wiki', 'path_html': '~/Dropbox/wiki_html'}]
+let g:vimwiki_list = [{'path': '~/Wiki', 'path_html': '~/Wiki_html'}]
 
 
 " Quickly edit/reload the vimrc file
