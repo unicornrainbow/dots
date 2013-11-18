@@ -186,3 +186,6 @@ alias rc='zeus console'
 
 # Open last file edited in vim.
 alias lvim='vim -c "normal '\''0"'
+
+# Unmounts my sneaker drive
+alias ums=unmount_sneaker
