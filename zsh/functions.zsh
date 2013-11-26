@@ -227,8 +227,8 @@ git_union() {
   git diff -w --binary head > $PATCH
   git diff --binary --cached > $CPATCH
   git reset --hard HEAD
-  git apply $PATCH
-  git apply --cached $CPATCH
+  git apply --ignore-space-change --ignore-whitespace $PATCH
+  git apply --ignore-space-change --ignore-whitespace --cached $CPATCH
   rm $PATCH $CPATCH
 }
 
