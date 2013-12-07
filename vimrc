@@ -434,6 +434,24 @@ function! Wipeout()
 endfunction
 command! Wipeout :call Wipeout()
 
+function! PasteImage()
+  " Paste image from clipboard accroding to date/time
+  let images_dir = '/Users/blake/images/'
+  let images_path = '/images/'
+  let file = strftime("%T") . '.png'
+
+  execute "silent !pngpaste " . images_dir.file
+  " Test that the file exists
+  if filereadable(images_dir.file)
+    put='![]('.images_path.file.')'
+    normal! 2l
+    startinsert
+  else
+    echo "Couldn't paste image. perhaps no image data in clipboard?:"
+  endif
+endfunction
+command! PasteImage :call PasteImage()
+
 " Disable spelling for help http://stackoverflow.com/a/13899772/32384
 autocmd BufEnter /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set nospell
 autocmd BufLeave /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set spell
