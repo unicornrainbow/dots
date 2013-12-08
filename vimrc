@@ -436,13 +436,19 @@ command! Wipeout :call Wipeout()
 
 function! PasteImage()
   " Paste image from clipboard accroding to date/time
-  let images_dir = '/Users/blake/images/'
-  let images_path = '/images/'
+  let date_path = strftime("%Y/%m/%d/")
+  let images_root = '/Users/blake/'
+
+  let images_path = 'images/captures/' . date_path
+  let images_dir  = images_root . images_path
   let file = strftime("%T") . '.png'
 
-  execute "silent !pngpaste " . images_dir.file
+  " Make sure the directory exists
+  execute 'silent !mkdir -p ' . images_path
+
+  execute "silent !pngpaste " . images_dir . file
   " Test that the file exists
-  if filereadable(images_dir.file)
+  if filereadable(images_dir . file)
     put='![]('.images_path.file.')'
     normal! 2l
     startinsert
