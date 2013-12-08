@@ -449,7 +449,7 @@ function! PasteImage()
   execute "silent !pngpaste " . images_dir . file
   " Test that the file exists
   if filereadable(images_dir . file)
-    put='![]('.images_path.file.')'
+    put='![](/'.images_path.file.')'
     normal! 2l
     startinsert
   else
