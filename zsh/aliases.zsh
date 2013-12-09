@@ -189,3 +189,4 @@ alias lvim='vim -c "normal '\''0"'
 
 # Unmounts my sneaker drive
 alias ums=unmount_sneaker
+alias umb=unmount_backup
