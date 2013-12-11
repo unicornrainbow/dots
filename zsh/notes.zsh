@@ -10,6 +10,8 @@ alias note=notes
 
 # Create a new note.
 notes-new(){
+  local date_path="$(date +%Y)/$(date +%m)/$(date +%d)"
+
   if [ "$1" != '' ]; then
     local TOPICS_DIR="$NOTES_ROOT/$1"
     # Prompt or abort if the topic directory doesn't exist.
@@ -22,21 +24,38 @@ notes-new(){
           esac
       done
     fi
-    local DIR="$TOPICS_DIR/entries/$(date +%Y)/$(date +%m)/$(date +%d)"
+    local DIR="$TOPICS_DIR/entries/$date_path"
   else
-    local DIR="$NOTES_ROOT/entries/$(date +%Y)/$(date +%m)/$(date +%d)"
+    local DIR="$NOTES_ROOT/entries/$date_path"
   fi
   mkdir -p $DIR
-  eval $EDITOR "$DIR/$(date +%T).txt"
+  local file_name="$(date +%T).txt"
+  eval $EDITOR "$DIR/$file_name"
+
+  # If there are changes, commit them to the notes git repo.
+  pushd $NOTES_ROOT
+  git add -A
+  git commit -m "Create $date_path/$file_name"
+  popd
 }
 
 notes-last(){
+  local date_path="$(date +%Y)/$(date +%m)/$(date +%d)"
   if [ "$1" != '' ]; then
-    local DIR="$NOTES_ROOT/$1/entries/$(date +%Y)/$(date +%m)/$(date +%d)"
+    local DIR="$NOTES_ROOT/$1/entries/$date_path"
   else
-    local DIR="$NOTES_ROOT/entries/$(date +%Y)/$(date +%m)/$(date +%d)"
+    local DIR="$NOTES_ROOT/entries/$date_path"
   fi
-  eval $EDITOR $DIR/$(ls -t $DIR | head -n 1)
+
+  local file_path=$DIR/$(ls -t $DIR | head -n 1)
+  eval $EDITOR $file_path
+
+  # If there are changes, commit them to the notes git repo.
+  pushd $NOTES_ROOT
+  git add -A
+  local file_name=$(basename $file_path)
+  git commit -m "Edit $date_path/$file_name"
+  popd
 }
 
 # Review Notes
