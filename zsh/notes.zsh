@@ -34,8 +34,8 @@ notes-new(){
 
   # If there are changes, commit them to the notes git repo.
   pushd $NOTES_ROOT
-  git add -A
-  git commit -m "Create $date_path/$file_name"
+  git add -A > /dev/null
+  git commit -m "Create $date_path/$file_name" > /dev/null
   popd
 }
 
@@ -52,9 +52,9 @@ notes-last(){
 
   # If there are changes, commit them to the notes git repo.
   pushd $NOTES_ROOT
-  git add -A
   local file_name=$(basename $file_path)
-  git commit -m "Edit $date_path/$file_name"
+  git add -A > /dev/null
+  git commit -m "Edit $date_path/$file_name" > /dev/null
   popd
 }
 
