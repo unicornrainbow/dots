@@ -33,10 +33,10 @@ notes-new(){
   eval $EDITOR "$DIR/$file_name"
 
   # If there are changes, commit them to the notes git repo.
-  pushd $NOTES_ROOT
+  pushd $NOTES_ROOT > /dev/null
   git add -A > /dev/null
   git commit -m "Create $date_path/$file_name" > /dev/null
-  popd
+  popd > /dev/null
 }
 
 notes-last(){
@@ -51,11 +51,11 @@ notes-last(){
   eval $EDITOR $file_path
 
   # If there are changes, commit them to the notes git repo.
-  pushd $NOTES_ROOT
+  pushd $NOTES_ROOT > /dev/null
   local file_name=$(basename $file_path)
   git add -A > /dev/null
   git commit -m "Edit $date_path/$file_name" > /dev/null
-  popd
+  popd > /dev/null
 }
 
 # Review Notes
