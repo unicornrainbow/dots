@@ -478,3 +478,6 @@ nmap ,yr :let @*=expand("%")<CR>
 
 " Vim calulator http://vim.wikia.com/wiki/Using_vim_as_calculator
 :ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+
+" Type dts in insert mode for datestamp http://vim.wikia.com/wiki/Insert_current_date_or_time
+:iab <expr> dts strftime("%c")
