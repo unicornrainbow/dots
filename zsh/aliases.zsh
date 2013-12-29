@@ -198,4 +198,4 @@ alias desk='cd ~/Desktop'
 alias ol='vim ~/Notebox/ledger/general.ldg'
 
 # Print ledger balances
-alias balance='ledger -f ~/Notebox/ledger/general.ldg balance'
+alias bal='ledger -f ~/Notebox/ledger/general.ldg -s bal'
