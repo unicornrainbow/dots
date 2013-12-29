@@ -67,6 +67,9 @@ export RUBYLIB="lib:test"
 # Set editors
 export EDITOR=mvim\ -v
 
+# Default ledger file
+export LEDGER_FILE=~/Notebox/ledger/general.ldg
+
 ## Completions
 autoload -U compinit
 compinit -C
