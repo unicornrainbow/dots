@@ -193,3 +193,9 @@ alias umb=unmount_backup
 
 # Change to desktop
 alias desk='cd ~/Desktop'
+
+# Open ledger
+alias ol='vim ~/Notebox/ledger/general.ldg'
+
+# Print ledger balances
+alias balance='ledger -f ~/Notebox/ledger/general.ldg balance'
