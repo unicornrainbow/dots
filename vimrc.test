@@ -1,0 +1,11 @@
+set nocompatible
+set tabstop=2 expandtab softtabstop=2 shiftwidth=2
+set list listchars=tab:>-
+
+set rtp-=/home/blake/.vim
+
+set rtp+=/Users/blake/Projects/supertab
+set rtp+=/Users/blake/Projects/ultisnips
+
+syntax on
+filetype plugin indent on
