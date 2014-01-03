@@ -444,9 +444,10 @@ function! PasteImage()
   let file = strftime("%T") . '.png'
 
   " Make sure the directory exists
-  execute 'silent !mkdir -p ' . images_path
+  execute 'silent !mkdir -p ' . images_root . images_path
 
   execute "silent !pngpaste " . images_dir . file
+
   " Test that the file exists
   if filereadable(images_dir . file)
     put='![](/'.images_path.file.')'
