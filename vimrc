@@ -445,7 +445,6 @@ function! PasteImage()
 
   " Make sure the directory exists
   execute 'silent !mkdir -p ' . images_root . images_path
-
   execute "silent !pngpaste " . images_dir . file
 
   " Test that the file exists
@@ -456,6 +455,7 @@ function! PasteImage()
   else
     echo "Couldn't paste image. perhaps no image data in clipboard?:"
   endif
+  redraw!
 endfunction
 command! PasteImage :call PasteImage()
 
