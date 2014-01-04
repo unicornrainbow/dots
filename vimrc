@@ -449,9 +449,9 @@ function! PasteImage()
 
   " Test that the file exists
   if filereadable(images_dir . file)
-    put='![](/'.images_path.file.')'
-    normal! 2l
-    startinsert
+    execute "normal a \<BS>".'![](/'.images_path.file.')'
+    normal! 02l
+    startinsert!
   else
     echo "Couldn't paste image. perhaps no image data in clipboard?:"
   endif
