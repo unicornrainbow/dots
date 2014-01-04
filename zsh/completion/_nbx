@@ -1,6 +1,6 @@
-#compdef notes
+#compdef nbx
 
-_notes() {
+_nbx() {
     local curcontext="$curcontext" state line
     typeset -A opt_args
 
@@ -13,8 +13,8 @@ _notes() {
         _arguments '1:Command:(new ls last topics)'
     ;;
     *)
-        _files -W $NOTES_ROOT
+        _files -W $NBX_NOTES_ROOT
     esac
 }
 
-_notes "$@"
+_nbx "$@"

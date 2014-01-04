@@ -44,6 +44,9 @@ export PATH=/usr/local/share/python:$PATH
 # Include gem directory in path and setup RVM. Also add current directory to path.
 export PATH=`gem env gemdir`:$PATH
 
+# Setup Notebox notes root to ~/Notes
+export NBX_NOTES_ROOT=~/Notes
+
 # RE: Lion Rubies Breaks Ruby and RVM
 # > Notes for Darwin ( Mac OS X )
 # >   For Lion, Rubies should be built using gcc rather than llvm-gcc. Since
@@ -122,4 +125,3 @@ zstyle ':completion:*' menu select=2
 # Load all other scripts.
 source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
-source ~/.zsh/notes.zsh

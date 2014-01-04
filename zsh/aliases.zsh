@@ -26,7 +26,7 @@ alias hd=hexdump\ -C
 # Super short aliases
 alias b=branch-status
 alias bm=branch-status-base-master
-alias n=notes
+alias n=nbx
 alias a=git\ add
 alias aa='git add -A && git status -s' # Add all
 
