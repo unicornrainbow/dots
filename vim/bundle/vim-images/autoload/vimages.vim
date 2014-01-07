@@ -6,7 +6,10 @@ if exists("g:loaded_vimages") || &cp
   finish
 endif
 let g:loaded_vimages = 1
-let g:images_root = '/Users/blake/images/' "TODO: Inject this
+
+if !exists("g:images_root")
+  let g:images_root = expand('~/images/')
+endif
 
 function! s:warn(msg)
   echohl WarningMsg
