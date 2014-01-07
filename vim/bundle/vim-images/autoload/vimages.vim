@@ -31,7 +31,7 @@ function! vimages#PasteImage()
 
   " Test that the file exists
   if filereadable(images_dir . file)
-    execute "normal a \<BS>".'![](/'.images_path.file.')'
+    execute "normal a \<BS>".'![](/images/'.images_path.file.')'
     normal! 02l
     startinsert!
   else
