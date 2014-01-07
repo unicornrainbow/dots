@@ -6,6 +6,7 @@ if exists("g:loaded_vimages") || &cp
   finish
 endif
 let g:loaded_vimages = 1
+let g:images_root = '/Users/blake/images/' "TODO: Inject this
 
 function! s:warn(msg)
   echohl WarningMsg
@@ -16,14 +17,13 @@ endfunction
 function! vimages#PasteImage()
   " Paste image from clipboard accroding to date/time
   let date_path = strftime("%Y/%m/%d/")
-  let images_root = '/Users/blake/' "TODO: Inject this
 
-  let images_path = 'images/captures/' . date_path
-  let images_dir  = images_root . images_path
+  let images_path = 'captures/' . date_path
+  let images_dir  = g:images_root . images_path
   let file = strftime("%T") . '.png'
 
   " Make sure the directory exists
-  execute 'silent !mkdir -p ' . images_root . images_path
+  execute 'silent !mkdir -p ' . images_dir
   execute "silent !pngpaste " . images_dir . file
 
   " Test that the file exists
