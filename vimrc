@@ -434,31 +434,6 @@ function! Wipeout()
 endfunction
 command! Wipeout :call Wipeout()
 
-function! PasteImage()
-  " Paste image from clipboard accroding to date/time
-  let date_path = strftime("%Y/%m/%d/")
-  let images_root = '/Users/blake/'
-
-  let images_path = 'images/captures/' . date_path
-  let images_dir  = images_root . images_path
-  let file = strftime("%T") . '.png'
-
-  " Make sure the directory exists
-  execute 'silent !mkdir -p ' . images_root . images_path
-  execute "silent !pngpaste " . images_dir . file
-
-  " Test that the file exists
-  if filereadable(images_dir . file)
-    execute "normal a \<BS>".'![](/'.images_path.file.')'
-    normal! 02l
-    startinsert!
-  else
-    echo "Couldn't paste image. perhaps no image data in clipboard?:"
-  endif
-  redraw!
-endfunction
-command! PasteImage :call PasteImage()
-
 " Disable spelling for help http://stackoverflow.com/a/13899772/32384
 autocmd BufEnter /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set nospell
 autocmd BufLeave /usr/local/Cellar/macvim/7.3-65/MacVim.app/Contents/Resources/vim/runtime/doc/*.txt  set spell
@@ -482,3 +457,6 @@ nmap ,yr :let @*=expand("%")<CR>
 
 " Type dts in insert mode for datestamp http://vim.wikia.com/wiki/Insert_current_date_or_time
 :iab <expr> dts strftime("%c")
+
+" Paste Images
+command! PasteImage :call vimages#PasteImage()
