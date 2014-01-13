@@ -459,4 +459,4 @@ nmap ,yr :let @*=expand("%")<CR>
 :iab <expr> dts strftime("%c")
 
 " Paste Images
-command! PasteImage :call vimages#PasteImage()
+command! PasteImage :call image_paste#PasteImage()
