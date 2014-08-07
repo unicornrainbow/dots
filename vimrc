@@ -104,6 +104,7 @@ set wildignore+=*/public/javascripts/compiled/*
 set wildignore+=*/public/stylesheets/compiled/*
 set wildignore+=*/public/coffeescripts/*
 set wildignore+=*/public/api_docs/*
+set wildignore+=*/share/*
 set wildignore+=*/.deploy/*
 
 " Bind :Q to :q and :W to :w
